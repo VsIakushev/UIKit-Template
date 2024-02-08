@@ -101,12 +101,10 @@ class ViewController: UIViewController {
 
     @objc private func guessButtonTapped() {
         guessNumber()
-        print("кнопка УГАДАЙ нажата")
     }
 
     @objc private func calculateButtonTapped() {
         openCalculator()
-        print("кнопка КАЛЬКУЛЯТОР нажата")
     }
 
     private func openCalculator() {
@@ -121,7 +119,7 @@ class ViewController: UIViewController {
             textField.keyboardType = .numberPad
         }
 
-        let additionAction = UIAlertAction(title: "Сложить", style: .default) { _ in
+        let additionAction = UIAlertAction(title: "Сложить            ", style: .default) { _ in
             guard let textField1 = alertController.textFields?.first,
                   let textField2 = alertController.textFields?.last,
                   let number1 = Int(textField1.text ?? ""),
@@ -133,7 +131,7 @@ class ViewController: UIViewController {
             self.showResult(result)
         }
 
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let cancelAction = UIAlertAction(title: " Отмена", style: .cancel)
 
         alertController.addAction(additionAction)
         alertController.addAction(cancelAction)
