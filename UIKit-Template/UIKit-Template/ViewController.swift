@@ -100,6 +100,7 @@ class ViewController: UIViewController {
     }
 
     @objc private func guessButtonTapped() {
+        guessNumber()
         print("кнопка УГАДАЙ нажата")
     }
 
@@ -150,6 +151,47 @@ class ViewController: UIViewController {
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
 
+        present(alertController, animated: true)
+    }
+
+    private func guessNumber() {
+        let alertController = UIAlertController(title: "Угадай число от 1 до 10", message: nil, preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Введите число"
+            textField.keyboardType = .numberPad
+        }
+
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            guard let enteredNumber = Int(alertController.textFields?.first?.text ?? "") else {
+                print("some error in entered number")
+                return
+            }
+            let randomNumber = Int.random(in: 1 ... 10)
+            let title: String
+            let message: String
+
+            if enteredNumber == randomNumber {
+                title = "Поздравляю"
+                message = "Вы угадали"
+            } else {
+                title = "Упс!"
+                message = "Это неверный ответ"
+            }
+            self.showGuessResult(title: title, message: message)
+        }
+
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true)
+    }
+
+    private func showGuessResult(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ок", style: .cancel)
+        alertController.addAction(okAction)
         present(alertController, animated: true)
     }
 }
