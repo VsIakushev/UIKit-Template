@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setSafeAreaFrame()
+        setGuessButton()
+        setCalculateButton()
     }
 
     // MARK: - Private Methods
@@ -66,5 +68,42 @@ class ViewController: UIViewController {
         }
         alert.addAction(action)
         present(alert, animated: true)
+    }
+
+    private func setGuessButton() {
+        let button = UIButton(type: .custom)
+        button.setTitle("Угадай \nчисло", for: .normal)
+        button.addTarget(self, action: #selector(guessButtonTapped), for: .touchUpInside)
+        button.frame = CGRect(x: 82, y: 264, width: 150, height: 150)
+        button.backgroundColor = UIColor(named: "ButtonGuess")
+        button.layer.cornerRadius = 30
+        button.layer.borderWidth = 3
+        button.layer.borderColor = UIColor(named: "ButtonGuessBorder")?.cgColor
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.titleLabel?.numberOfLines = 2
+        button.titleLabel?.textAlignment = .center
+        view.addSubview(button)
+    }
+
+    private func setCalculateButton() {
+        let button = UIButton(type: .custom)
+        button.setTitle("Калькулятор", for: .normal)
+        button.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
+        button.frame = CGRect(x: 132, y: 507, width: 200, height: 200)
+        button.backgroundColor = UIColor(named: "ButtonCalculate")
+        button.layer.cornerRadius = 30
+        button.layer.borderWidth = 3
+        button.layer.borderColor = UIColor(named: "ButtonCalculateBorder")?.cgColor
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.titleLabel?.textAlignment = .center
+        view.addSubview(button)
+    }
+
+    @objc private func guessButtonTapped() {
+        print("кнопка УГАДАЙ нажата")
+    }
+
+    @objc private func calculateButtonTapped() {
+        print("кнопка КАЛЬКУЛЯТОР нажата")
     }
 }
