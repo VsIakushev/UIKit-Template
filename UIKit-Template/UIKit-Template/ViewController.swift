@@ -5,13 +5,19 @@ import UIKit
 
 /// Класс главного экрана приложения
 class ViewController: UIViewController {
-    let model = WordModel()
+    // MARK: - Private Properties
+
+    private let model = WordModel()
+
+    // MARK: - Overrides Methods (View Life Cycles)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         onlyButtonSetupViews()
     }
+
+    // MARK: - Private Methods
 
     private func createStartButton() -> UIButton {
         let button = UIButton(type: .system)
@@ -72,25 +78,21 @@ class ViewController: UIViewController {
     private func labelsAndButtonSetupView(with word: String) {
         let labels = createLabels(with: word)
         let button = createStartButton()
-        button.frame.size.height = 80
+
         var allViews: [UIView] = labels
         allViews.append(button)
 
-        let stackView = UIStackView(arrangedSubviews: allViews)
-        stackView.axis = .vertical
-        stackView.spacing = 20
+        let labelWidth: CGFloat = 275
+        let labelX = (view.frame.size.width - labelWidth) / 2
 
-        stackView.frame.size.width = 335
-        stackView.frame.size.height = 536
+        labels[0].frame = CGRect(x: labelX, y: 100, width: labelWidth, height: 20)
+        labels[1].frame = CGRect(x: labelX, y: labels[0].frame.maxY + 20, width: labelWidth, height: 20)
+        labels[2].frame = CGRect(x: labelX, y: labels[1].frame.maxY + 80, width: labelWidth, height: 60)
+        labels[3].frame = CGRect(x: labelX, y: labels[2].frame.maxY + 20, width: labelWidth, height: 20)
+        button.frame = CGRect(x: (view.frame.width - 335) / 2, y: labels[3].frame.maxY + 202, width: 335, height: 44)
 
-        stackView.setCustomSpacing(-40, after: allViews[0])
-        stackView.setCustomSpacing(80, after: allViews[1])
-
-        stackView.setCustomSpacing(202, after: allViews[3])
-
-        stackView.center = view.center
-
-        view.addSubview(stackView)
+        labels.forEach { view.addSubview($0) }
+        view.addSubview(button)
     }
 
     @objc private func startButtonPressed() {
