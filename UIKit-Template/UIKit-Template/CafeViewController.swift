@@ -3,20 +3,27 @@
 
 import UIKit
 
+/// Экран бронирования столика
 class CafeViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - IB Outlets
 
-        // Do any additional setup after loading the view.
+    @IBOutlet var fullnameTextField: UITextField!
+    @IBOutlet var numberOfGuestsTextField: UITextField!
+    @IBOutlet var tableNumberTextField: UITextField!
+    @IBOutlet var tableNumberSwitch: UISwitch!
+    @IBOutlet var prepaymentSwitch: UISwitch!
+    @IBOutlet var vipRoomSwitch: UISwitch!
+
+    // MARK: - IB Actions
+
+    @IBAction func makeCheckPressed(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Выставить счет?", message: nil, preferredStyle: .alert)
+        let checkAction = UIAlertAction(title: "Чек", style: .default) { _ in
+            self.performSegue(withIdentifier: "toCheckScreen", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        alertController.addAction(checkAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
