@@ -4,10 +4,10 @@
 import UIKit
 
 /// Основной экран приложения
-class ViewController: UIViewController {
+class MainScreenViewController: UIViewController {
     // MARK: - Private Properties
 
-    private let contentView = UIImageView(image: UIImage(named: "Background"))
+    private let contentView = UIImageView(image: UIImage(named: "background"))
 
     // MARK: - Overrides Methods (View Life Cycles)
 
