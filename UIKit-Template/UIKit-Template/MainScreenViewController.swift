@@ -1,4 +1,4 @@
-// ViewController.swift
+// MainScreenViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
@@ -135,6 +135,7 @@ class MainScreenViewController: UIViewController {
 
         alertController.addAction(additionAction)
         alertController.addAction(cancelAction)
+        alertController.preferredAction = additionAction
 
         present(alertController, animated: true)
     }
@@ -182,6 +183,7 @@ class MainScreenViewController: UIViewController {
 
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
+        alertController.preferredAction = okAction
 
         present(alertController, animated: true)
     }
