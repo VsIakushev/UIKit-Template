@@ -11,13 +11,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let window = UIWindow()
-
-        window.rootViewController = ViewController()
-        window.makeKeyAndVisible()
-
-        self.window = window
-
+        let loginViewController = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+        navigationController.navigationBar.isHidden = true // Скрыть навигационную панель, если не требуется
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         return true
     }
 }
