@@ -4,22 +4,26 @@
 import UIKit
 
 /// Экран бронирования столика
-class CafeViewController: UIViewController {
+final class CafeViewController: UIViewController {
+    // MARK: - Private Properties
+
+    let segueIdentifierToCheckScreen = "toCheckScreen"
+
     // MARK: - IB Outlets
 
-    @IBOutlet var fullnameTextField: UITextField!
-    @IBOutlet var numberOfGuestsTextField: UITextField!
-    @IBOutlet var tableNumberTextField: UITextField!
-    @IBOutlet var tableNumberSwitch: UISwitch!
-    @IBOutlet var prepaymentSwitch: UISwitch!
-    @IBOutlet var vipRoomSwitch: UISwitch!
+    @IBOutlet private var fullnameTextField: UITextField!
+    @IBOutlet private var numberOfGuestsTextField: UITextField!
+    @IBOutlet private var tableNumberTextField: UITextField!
+    @IBOutlet private var tableNumberSwitch: UISwitch!
+    @IBOutlet private var prepaymentSwitch: UISwitch!
+    @IBOutlet private var vipRoomSwitch: UISwitch!
 
     // MARK: - IB Actions
 
-    @IBAction func makeCheckPressed(_ sender: UIButton) {
+    @IBAction private func makeCheckPressed(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Выставить счет?", message: nil, preferredStyle: .alert)
         let checkAction = UIAlertAction(title: "Чек", style: .default) { _ in
-            self.performSegue(withIdentifier: "toCheckScreen", sender: self)
+            self.performSegue(withIdentifier: self.segueIdentifierToCheckScreen, sender: self)
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         alertController.addAction(checkAction)

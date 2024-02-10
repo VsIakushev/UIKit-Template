@@ -345,7 +345,7 @@
                                     </fragment>
                                     <fragment content="₽">
                                         <attributes>
-                                            <font key="NSFont" size="16" name=".SFNS-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="16"/>
                                             <font key="NSOriginalFont" size="16" name="Verdana-Bold"/>
                                         </attributes>
                                     </fragment>
@@ -378,7 +378,7 @@
                                     </fragment>
                                     <fragment content="₽">
                                         <attributes>
-                                            <font key="NSFont" size="16" name=".SFNS-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="16"/>
                                             <font key="NSOriginalFont" size="16" name="Verdana-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -439,10 +439,10 @@
         <image name="eye.slash.fill" catalog="system" width="128" height="85"/>
         <image name="logo" width="175" height="165"/>
         <namedColor name="buttonActive">
-            <color red="0.1899144351" green="0.74140250679999997" blue="0.80439680810000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18999999761581421" green="0.74099999666213989" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="buttonInactive">
-            <color red="0.53998285530000001" green="0.86984604600000004" blue="0.90047305820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.54000002145767212" green="0.87000000476837158" blue="0.89999997615814209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
