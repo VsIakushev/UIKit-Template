@@ -15,6 +15,7 @@
 		573313682B73215C00092647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573313662B73215C00092647 /* LaunchScreen.storyboard */; };
 		573313FA2B76BF4C00092647 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573313F92B76BF4C00092647 /* Person.swift */; };
 		573313FC2B76DB8A00092647 /* PersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573313FB2B76DB8A00092647 /* PersonsViewController.swift */; };
+		573313FE2B77642E00092647 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573313FD2B77642E00092647 /* AddPersonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		573313692B73215C00092647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		573313F92B76BF4C00092647 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		573313FB2B76DB8A00092647 /* PersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsViewController.swift; sourceTree = "<group>"; };
+		573313FD2B77642E00092647 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				573313F92B76BF4C00092647 /* Person.swift */,
 				5733135F2B73215B00092647 /* LoginViewController.swift */,
 				573313FB2B76DB8A00092647 /* PersonsViewController.swift */,
+				573313FD2B77642E00092647 /* AddPersonViewController.swift */,
 				573313642B73215C00092647 /* Assets.xcassets */,
 				573313612B73215B00092647 /* Main.storyboard */,
 				573313662B73215C00092647 /* LaunchScreen.storyboard */,
@@ -194,6 +197,7 @@
 				5733135C2B73215B00092647 /* AppDelegate.swift in Sources */,
 				573313FC2B76DB8A00092647 /* PersonsViewController.swift in Sources */,
 				5733135E2B73215B00092647 /* SceneDelegate.swift in Sources */,
+				573313FE2B77642E00092647 /* AddPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

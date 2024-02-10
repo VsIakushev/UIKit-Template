@@ -18,6 +18,8 @@ final class LoginViewController: UIViewController {
     let passwordSeparatorView = UIView()
     let showPasswordButton = UIButton()
     let loginButton = UIButton()
+    let faceIDLabel = UILabel()
+    let faceIDSwitch = UISwitch()
 
     // MARK: - Overrides Methods (View Life Cycles)
 
@@ -90,6 +92,14 @@ final class LoginViewController: UIViewController {
         loginButton.backgroundColor = #colorLiteral(red: 0.9652497172, green: 0.7091785073, blue: 0.7500941157, alpha: 1)
         loginButton.layer.cornerRadius = 12
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+
+        faceIDLabel.text = "Use FaceID"
+        faceIDLabel.frame = CGRect(x: 86, y: 544, width: 150, height: 35)
+        faceIDLabel.font = UIFont(name: "Verdana-Bold", size: 16)
+        faceIDLabel.textAlignment = .center
+
+        faceIDSwitch.frame = CGRect(x: 248, y: 544, width: 54, height: 35)
+        faceIDSwitch.isOn = true
     }
 
     /// функция добавления UI элементов на экран
@@ -105,6 +115,8 @@ final class LoginViewController: UIViewController {
         view.addSubview(passwordSeparatorView)
         view.addSubview(showPasswordButton)
         view.addSubview(loginButton)
+        view.addSubview(faceIDLabel)
+        view.addSubview(faceIDSwitch)
     }
 
     /// Функция проверки заполнения текстовых полей емейла и пароля
@@ -115,9 +127,13 @@ final class LoginViewController: UIViewController {
         if userNameText.isEmpty || passwordText.isEmpty {
             loginButton.isEnabled = false
             loginButton.backgroundColor = #colorLiteral(red: 0.9652497172, green: 0.7091785073, blue: 0.7500941157, alpha: 1)
+            faceIDLabel.isHidden = true
+            faceIDSwitch.isHidden = true
         } else {
             loginButton.isEnabled = true
             loginButton.backgroundColor = #colorLiteral(red: 0.9119740725, green: 0.2736012042, blue: 0.368863225, alpha: 1)
+            faceIDLabel.isHidden = false
+            faceIDSwitch.isHidden = false
         }
     }
 
