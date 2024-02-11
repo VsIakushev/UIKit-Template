@@ -228,8 +228,9 @@ final class AddPersonViewController:
         genderPickerView.backgroundColor = .white
 
         birthdayDatePicker.datePickerMode = .date
-        birthdayDatePicker.backgroundColor = .white
         birthdayDatePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        birthdayDatePicker.preferredDatePickerStyle = .inline
+        birthdayDatePicker.backgroundColor = .white
     }
 
     private func showTelegramAlert() {
