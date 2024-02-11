@@ -229,7 +229,7 @@ final class AddPersonViewController:
 
         birthdayDatePicker.datePickerMode = .date
         birthdayDatePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
-        birthdayDatePicker.preferredDatePickerStyle = .inline
+        birthdayDatePicker.preferredDatePickerStyle = .wheels
         birthdayDatePicker.backgroundColor = .white
     }
 
