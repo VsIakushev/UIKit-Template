@@ -7,19 +7,19 @@ import UIKit
 final class LoginViewController: UIViewController {
     // MARK: - Private Properties
 
-    let logoImageView = UIImageView()
-    let titleLabel = UILabel()
-    let signInLabel = UILabel()
-    let emailLabel = UILabel()
-    let emailTextField = UITextField()
-    let emailSeparatorView = UIView()
-    let passwordLabel = UILabel()
-    let passwordTextField = UITextField()
-    let passwordSeparatorView = UIView()
-    let showPasswordButton = UIButton()
-    let loginButton = UIButton()
-    let faceIDLabel = UILabel()
-    let faceIDSwitch = UISwitch()
+    private let logoImageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let signInLabel = UILabel()
+    private let emailLabel = UILabel()
+    private let emailTextField = UITextField()
+    private let emailSeparatorView = UIView()
+    private let passwordLabel = UILabel()
+    private let passwordTextField = UITextField()
+    private let passwordSeparatorView = UIView()
+    private let showPasswordButton = UIButton()
+    private let loginButton = UIButton()
+    private let faceIDLabel = UILabel()
+    private let faceIDSwitch = UISwitch()
 
     // MARK: - Overrides Methods (View Life Cycles)
 
@@ -137,6 +137,7 @@ final class LoginViewController: UIViewController {
         }
     }
 
+    /// Функция отслеживания изменений textField
     @objc private func textFieldDidChange(_ textField: UITextField) {
         checkTextFieldsFiling()
     }
