@@ -8,15 +8,15 @@ import UIKit
 final class PlayerViewController: UIViewController {
     // MARK: - IB Outlets
 
-    @IBOutlet var trackImage: UIImageView!
-    @IBOutlet var trackNameLabel: UILabel!
-    @IBOutlet var artistLabel: UILabel!
-    @IBOutlet var durationLabel: UILabel!
+    @IBOutlet private var trackImage: UIImageView!
+    @IBOutlet private var trackNameLabel: UILabel!
+    @IBOutlet private var artistLabel: UILabel!
+    @IBOutlet private var durationLabel: UILabel!
 
-    @IBOutlet var trackDurationSlider: UISlider!
-    @IBOutlet var volumeSlider: UISlider!
+    @IBOutlet private var trackDurationSlider: UISlider!
+    @IBOutlet private var volumeSlider: UISlider!
 
-    @IBOutlet var playPauseButton: UIButton!
+    @IBOutlet private var playPauseButton: UIButton!
 
     // MARK: - Public Properties
 
