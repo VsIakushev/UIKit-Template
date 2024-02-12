@@ -8,5 +8,5 @@ struct TrackInfo {
     let artist: String
     let trackImageName: String
     let dutarion: String
-    let adress: String
+    let address: String
 }

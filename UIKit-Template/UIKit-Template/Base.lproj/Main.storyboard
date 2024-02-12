@@ -55,7 +55,6 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="trackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iQi-aO-CQT"/>
                                     <segue destination="iUO-Am-HIC" kind="presentation" identifier="toPlayerViewController" id="OfP-Kz-mXk"/>
                                 </connections>
                             </button>
@@ -98,7 +97,6 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="trackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dhc-kg-383"/>
                                     <segue destination="iUO-Am-HIC" kind="presentation" identifier="toPlayerViewController" id="zKf-Id-iGP"/>
                                 </connections>
                             </button>
@@ -148,7 +146,6 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="trackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cY-eo-OeU"/>
                                     <segue destination="iUO-Am-HIC" kind="presentation" identifier="toPlayerViewController" id="5yT-zh-Bob"/>
                                 </connections>
                             </button>
@@ -186,7 +183,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N24-wt-LsE">
-                                <rect key="frame" x="115" y="524" width="79" height="20"/>
+                                <rect key="frame" x="115" y="524" width="140" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -289,6 +286,7 @@
                     </view>
                     <connections>
                         <outlet property="artistLabel" destination="N24-wt-LsE" id="Wf7-22-fjb"/>
+                        <outlet property="durationLabel" destination="D5u-vj-fq1" id="nRE-tW-elu"/>
                         <outlet property="trackDurationSlider" destination="Cjt-fW-D5U" id="gah-QG-T2Q"/>
                         <outlet property="trackImage" destination="VA7-Yy-BdK" id="Upa-7R-qqO"/>
                         <outlet property="trackNameLabel" destination="KQK-fX-HNC" id="gCS-iO-DZ3"/>

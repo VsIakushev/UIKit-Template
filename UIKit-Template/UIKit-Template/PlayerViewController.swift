@@ -4,34 +4,34 @@
 import UIKit
 
 class PlayerViewController: UIViewController {
-    var tracks: [TrackInfo] = []
-    var activeTrackIndex = 0
-
     // MARK: - IB Outlets
 
     @IBOutlet var trackImage: UIImageView!
     @IBOutlet var trackNameLabel: UILabel!
     @IBOutlet var artistLabel: UILabel!
+    @IBOutlet var durationLabel: UILabel!
+
     @IBOutlet var trackDurationSlider: UISlider!
-//    @IBOutlet var volumeSlider: UISlider!
-
     @IBOutlet var volumeSlider: UISlider!
-//    let volumeSlider = UISlider()
 
-//    // MARK: - Public Properties
-//    let tracks: [TrackInfo]
-//
-//    // MARK: - Initializers
-//    init(tracks: [TrackInfo]) {
-//        self.tracks = tracks
-//
-//    }
+    // MARK: - Public Properties
+
+    var tracks: [TrackInfo] = []
+    var activeTrackIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupSliders()
         print(activeTrackIndex)
         print(tracks)
+    }
+
+    private func setupView() {
+        trackImage.image = UIImage(named: "\(tracks[activeTrackIndex].trackImageName)")
+        trackNameLabel.text = tracks[activeTrackIndex].trackName
+        artistLabel.text = tracks[activeTrackIndex].artist
+        durationLabel.text = tracks[activeTrackIndex].dutarion
     }
 
     private func setupSliders() {

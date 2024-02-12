@@ -9,23 +9,23 @@ class PlaylistViewController: UIViewController {
             trackName: "Let It Be",
             artist: "The Beatles",
             trackImageName: "letItBe",
-            dutarion: "03:20",
-            adress: "lovely"
+            dutarion: "04:03",
+            address: "lovely"
         ),
         TrackInfo(
             trackName: "Yesterday",
             artist: "The Beatles",
             trackImageName: "yesterday",
-            dutarion: "01:50",
-            adress: "nightCity"
+            dutarion: "02:05",
+            address: "nightCity"
         ),
         TrackInfo(
             trackName: "The Show Must Go On",
             artist: "Queen",
             trackImageName: "showMustGoOn",
-            dutarion: "04:06",
-            adress: "noTimeForCaution"
-        ),
+            dutarion: "04:31",
+            address: "noTimeForCaution"
+        )
     ]
 
     private func pushDataToPlayerViewController(trackIndex: Int) {
@@ -33,8 +33,6 @@ class PlaylistViewController: UIViewController {
         playerVC.tracks = tracks
         playerVC.activeTrackIndex = trackIndex
     }
-
-//    sender.titleLabel
 
     @IBAction func trackButtonTapped(_ sender: UIButton) {
 //        let playerVC = PlayerViewController()
