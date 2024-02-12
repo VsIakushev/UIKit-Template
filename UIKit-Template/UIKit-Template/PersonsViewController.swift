@@ -43,14 +43,6 @@ final class PersonsViewController: UIViewController {
     private func navigationBarSetup() {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Birthday Reminder"
-        let backButton = UIBarButtonItem(
-            title: "Back",
-            style: .plain,
-            target: self,
-            action: #selector(backButtonTapped)
-        )
-
-        navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
@@ -152,14 +144,14 @@ final class PersonsViewController: UIViewController {
         view.addSubview(personFourDaysBeforeBirthday)
     }
 
-    @objc private func backButtonTapped() {
-        // Обработка нажатия на кнопку "Back"
-        navigationController?.popViewController(animated: true)
-    }
+//    @objc private func backButtonTapped() {
+//        // Обработка нажатия на кнопку "Back"
+//        navigationController?.popViewController(animated: true)
+//    }
 
     @objc func addButtonTapped() {
         let addPersonViewController = AddPersonViewController()
-        addPersonViewController.modalPresentationStyle = .popover
+        addPersonViewController.modalPresentationStyle = .formSheet
         present(addPersonViewController, animated: true)
     }
 }

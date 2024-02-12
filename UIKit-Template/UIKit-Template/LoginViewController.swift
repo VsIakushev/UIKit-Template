@@ -29,9 +29,6 @@ final class LoginViewController: UIViewController {
         addViews()
 
         checkTextFieldsFiling()
-
-        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
     // MARK: - Private Methods
@@ -100,6 +97,9 @@ final class LoginViewController: UIViewController {
 
         faceIDSwitch.frame = CGRect(x: 248, y: 544, width: 54, height: 35)
         faceIDSwitch.isOn = true
+
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
     /// функция добавления UI элементов на экран

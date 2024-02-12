@@ -4,9 +4,7 @@
 import UIKit
 
 /// Экран добавления новой персоны в список
-final class AddPersonViewController:
-    UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
-{
+final class AddPersonViewController: UIViewController {
     // MARK: - Constants
 
     private let userImageView = UIImageView()
@@ -52,61 +50,12 @@ final class AddPersonViewController:
         setupPickerToolbar()
     }
 
-    // MARK: - Public Methods
-
-    /// Количество компонентов пикера
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-
-    /// Количество элементов в каждом компоненте
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.isEqual(agePickerView) {
-            return ages.count
-        } else if pickerView.isEqual(genderPickerView) {
-            return genders.count
-        } else {
-            return 0
-        }
-    }
-
-    /// Текст для каждой строки в пикере
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.isEqual(agePickerView) {
-            return "\(ages[row])"
-        } else if pickerView.isEqual(genderPickerView) {
-            return genders[row]
-        } else {
-            return nil
-        }
-    }
-
-    /// Обработка выбора элемента из пикера
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.isEqual(agePickerView) {
-            ageTextField.text = "\(ages[row])"
-        } else if pickerView.isEqual(genderPickerView) {
-            genderTextField.text = genders[row]
-        }
-    }
-
-    /// Метод делегата UITextFieldDelegate, вызываемый при нажатии на текстовое поле
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == telegramTextField {
-            showTelegramAlert()
-            return false
-        }
-        return true
-    }
-
     // MARK: - Private Methods
 
     private func setupPickerToolbar() {
         let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(okButtonTapped))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
         toolbar.sizeToFit()
-        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        toolbar.setItems([UIBarButtonItem.flexibleSpace(), doneButton], animated: false)
     }
 
     private func setupView() {
@@ -241,7 +190,7 @@ final class AddPersonViewController:
         )
 
         alertController.addTextField { textField in
-            textField.placeholder = "Telegram"
+            textField.placeholder = "Typing Telegram"
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -273,5 +222,52 @@ final class AddPersonViewController:
     @objc private func okButtonTapped() {
         ageTextField.resignFirstResponder()
         genderTextField.resignFirstResponder()
+    }
+}
+
+/// Метод делегата UITextFieldDelegate, вызываемый при нажатии на текстовое поле
+extension AddPersonViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == telegramTextField {
+            showTelegramAlert()
+            return false
+        }
+        return true
+    }
+}
+
+extension AddPersonViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == agePickerView {
+            return ages.count
+        } else if pickerView == genderPickerView {
+            return genders.count
+        } else {
+            return 0
+        }
+    }
+}
+
+extension AddPersonViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == agePickerView {
+            return "\(ages[row])"
+        } else if pickerView == genderPickerView {
+            return genders[row]
+        } else {
+            return nil
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == agePickerView {
+            ageTextField.text = "\(ages[row])"
+        } else if pickerView == genderPickerView {
+            genderTextField.text = genders[row]
+        }
     }
 }

@@ -16,6 +16,7 @@
 		573313FA2B76BF4C00092647 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573313F92B76BF4C00092647 /* Person.swift */; };
 		573313FC2B76DB8A00092647 /* PersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573313FB2B76DB8A00092647 /* PersonsViewController.swift */; };
 		573313FE2B77642E00092647 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573313FD2B77642E00092647 /* AddPersonViewController.swift */; };
+		573314902B7AB96800092647 /* AddPersonViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5733148F2B7AB96800092647 /* AddPersonViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		573313F92B76BF4C00092647 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		573313FB2B76DB8A00092647 /* PersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsViewController.swift; sourceTree = "<group>"; };
 		573313FD2B77642E00092647 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
+		5733148F2B7AB96800092647 /* AddPersonViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPersonViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				5733135F2B73215B00092647 /* LoginViewController.swift */,
 				573313FB2B76DB8A00092647 /* PersonsViewController.swift */,
 				573313FD2B77642E00092647 /* AddPersonViewController.swift */,
+				5733148F2B7AB96800092647 /* AddPersonViewController+Extension.swift */,
 				573313642B73215C00092647 /* Assets.xcassets */,
 				573313612B73215B00092647 /* Main.storyboard */,
 				573313662B73215C00092647 /* LaunchScreen.storyboard */,
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573314902B7AB96800092647 /* AddPersonViewController+Extension.swift in Sources */,
 				573313FA2B76BF4C00092647 /* Person.swift in Sources */,
 				573313602B73215B00092647 /* LoginViewController.swift in Sources */,
 				5733135C2B73215B00092647 /* AppDelegate.swift in Sources */,
