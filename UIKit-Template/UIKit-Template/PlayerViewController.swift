@@ -15,6 +15,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet var trackDurationSlider: UISlider!
     @IBOutlet var volumeSlider: UISlider!
 
+    @IBOutlet var playPauseButton: UIButton!
+
     // MARK: - Public Properties
 
     var player = AVAudioPlayer()
@@ -27,6 +29,7 @@ class PlayerViewController: UIViewController {
         print(activeTrackIndex)
         print(tracks)
         setupPlayer()
+        playPause()
 
         trackDurationSlider.addTarget(self, action: #selector(changeSlider), for: .valueChanged)
     }
@@ -39,12 +42,10 @@ class PlayerViewController: UIViewController {
 
         let address = tracks[activeTrackIndex].address
 
-        print("starting player... address: \(address)")
         do {
             if let audioPath = Bundle.main.path(forResource: address, ofType: "mp3") {
                 try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
                 trackDurationSlider.maximumValue = Float(player.duration)
-                print("path ok")
             }
         } catch {
             print("Error")
@@ -65,6 +66,16 @@ class PlayerViewController: UIViewController {
         }
     }
 
+    private func playPause() {
+        if player.isPlaying == false {
+            player.play()
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+        } else {
+            player.pause()
+            playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        }
+    }
+
     @objc func changeSlider(sender: UISlider) {
         if sender.isEqual(trackDurationSlider) {
             player.currentTime = TimeInterval(sender.value)
@@ -80,13 +91,38 @@ class PlayerViewController: UIViewController {
     }
 
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
-        print("play pressed")
-        player.play()
+        playPause()
     }
 
-    @IBAction func forwardButtonTapped(_ sender: UIButton) {}
+    @IBAction func forwardButtonTapped(_ sender: UIButton) {
+        let isPlaying = player.isPlaying
 
-    @IBAction func backwardButtonTapped(_ sender: Any) {}
+        if activeTrackIndex == tracks.count - 1 {
+            print("error: trackIndex out of range")
+            return
+        } else {
+            activeTrackIndex += 1
+            setupPlayer()
+            if isPlaying {
+                player.play()
+            }
+        }
+    }
+
+    @IBAction func backwardButtonTapped(_ sender: Any) {
+        let isPlaying = player.isPlaying
+
+        if activeTrackIndex == 0 {
+            print("error: trackIndex out of range")
+            return
+        } else {
+            activeTrackIndex -= 1
+            setupPlayer()
+            if isPlaying {
+                player.play()
+            }
+        }
+    }
 
     @IBAction func dismissButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)

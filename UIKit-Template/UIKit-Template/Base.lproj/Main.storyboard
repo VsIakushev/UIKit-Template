@@ -287,6 +287,7 @@
                     <connections>
                         <outlet property="artistLabel" destination="N24-wt-LsE" id="Wf7-22-fjb"/>
                         <outlet property="durationLabel" destination="D5u-vj-fq1" id="nRE-tW-elu"/>
+                        <outlet property="playPauseButton" destination="Trm-NE-xRr" id="zI0-Ju-Ol4"/>
                         <outlet property="trackDurationSlider" destination="Cjt-fW-D5U" id="gah-QG-T2Q"/>
                         <outlet property="trackImage" destination="VA7-Yy-BdK" id="Upa-7R-qqO"/>
                         <outlet property="trackNameLabel" destination="KQK-fX-HNC" id="gCS-iO-DZ3"/>
