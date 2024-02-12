@@ -1,6 +1,7 @@
 // PlayerViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import AVFoundation
 import UIKit
 
 class PlayerViewController: UIViewController {
@@ -16,22 +17,38 @@ class PlayerViewController: UIViewController {
 
     // MARK: - Public Properties
 
+    var player = AVAudioPlayer()
     var tracks: [TrackInfo] = []
     var activeTrackIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         setupSliders()
         print(activeTrackIndex)
         print(tracks)
+        setupPlayer()
+
+        trackDurationSlider.addTarget(self, action: #selector(changeSlider), for: .valueChanged)
     }
 
-    private func setupView() {
+    private func setupPlayer() {
         trackImage.image = UIImage(named: "\(tracks[activeTrackIndex].trackImageName)")
         trackNameLabel.text = tracks[activeTrackIndex].trackName
         artistLabel.text = tracks[activeTrackIndex].artist
         durationLabel.text = tracks[activeTrackIndex].dutarion
+
+        let address = tracks[activeTrackIndex].address
+
+        print("starting player... address: \(address)")
+        do {
+            if let audioPath = Bundle.main.path(forResource: address, ofType: "mp3") {
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                trackDurationSlider.maximumValue = Float(player.duration)
+                print("path ok")
+            }
+        } catch {
+            print("Error")
+        }
     }
 
     private func setupSliders() {
@@ -48,11 +65,24 @@ class PlayerViewController: UIViewController {
         }
     }
 
-    @IBAction func volumeSliderChanged(_ sender: UISlider) {}
+    @objc func changeSlider(sender: UISlider) {
+        if sender.isEqual(trackDurationSlider) {
+            player.currentTime = TimeInterval(sender.value)
+        }
+    }
 
-    @IBAction func trackDorationSliderChanged(_ sender: UISlider) {}
+    @IBAction func volumeSliderChanged(_ sender: UISlider) {
+        player.volume = volumeSlider.value
+    }
 
-    @IBAction func playPauseButtonTapped(_ sender: UIButton) {}
+    @IBAction func trackDorationSliderChanged(_ sender: UISlider) {
+        player.currentTime = TimeInterval(trackDurationSlider.value)
+    }
+
+    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+        print("play pressed")
+        player.play()
+    }
 
     @IBAction func forwardButtonTapped(_ sender: UIButton) {}
 
