@@ -40,6 +40,11 @@ final class PlayerViewController: UIViewController {
         trackDurationSlider.addTarget(self, action: #selector(changeSlider), for: .valueChanged)
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        player.stop()
+    }
+
     // MARK: - Private Methods
 
     private func setupPlayer() {
@@ -81,6 +86,7 @@ final class PlayerViewController: UIViewController {
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         } else {
             player.pause()
+            stopTimer()
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         }
     }
@@ -93,6 +99,11 @@ final class PlayerViewController: UIViewController {
             userInfo: nil,
             repeats: true
         )
+    }
+
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 
     @objc private func updateTimeLabelAndDurationSlider() {
