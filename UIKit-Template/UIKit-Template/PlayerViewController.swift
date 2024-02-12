@@ -22,6 +22,7 @@ class PlayerViewController: UIViewController {
     var player = AVAudioPlayer()
     var tracks: [TrackInfo] = []
     var activeTrackIndex = 0
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class PlayerViewController: UIViewController {
         trackImage.image = UIImage(named: "\(tracks[activeTrackIndex].trackImageName)")
         trackNameLabel.text = tracks[activeTrackIndex].trackName
         artistLabel.text = tracks[activeTrackIndex].artist
-        durationLabel.text = tracks[activeTrackIndex].dutarion
+//        durationLabel.text = tracks[activeTrackIndex].dutarion
 
         let address = tracks[activeTrackIndex].address
 
@@ -69,11 +70,33 @@ class PlayerViewController: UIViewController {
     private func playPause() {
         if player.isPlaying == false {
             player.play()
+            startTimer()
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         } else {
             player.pause()
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         }
+    }
+
+    private func startTimer() {
+        timer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(updateTimeLabelAndDurationSlider),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+
+    @objc func updateTimeLabelAndDurationSlider() {
+        let currentTime = Int(player.currentTime)
+        let minutes = currentTime / 60
+        let seconds = currentTime % 60
+
+        let timeString = String(format: "%02d:%02d", minutes, seconds)
+
+        durationLabel.text = timeString
+        trackDurationSlider.value = Float(player.currentTime)
     }
 
     @objc func changeSlider(sender: UISlider) {
