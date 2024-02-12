@@ -3,6 +3,7 @@
 
 import Foundation
 
+/// Модель информации об аудиоТреке
 struct TrackInfo {
     let trackName: String
     let artist: String

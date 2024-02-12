@@ -4,7 +4,8 @@
 import AVFoundation
 import UIKit
 
-class PlayerViewController: UIViewController {
+/// Экран АудиоПлеера
+final class PlayerViewController: UIViewController {
     // MARK: - IB Outlets
 
     @IBOutlet var trackImage: UIImageView!
@@ -19,33 +20,39 @@ class PlayerViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    var player = AVAudioPlayer()
     var tracks: [TrackInfo] = []
     var activeTrackIndex = 0
-    var timer: Timer?
+
+    // MARK: - Private Properties
+
+    private var player = AVAudioPlayer()
+    private var timer: Timer?
+
+    // MARK: - Overrides Methods (View Life Cycles)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupSliders()
-        print(activeTrackIndex)
-        print(tracks)
         setupPlayer()
         playPause()
 
         trackDurationSlider.addTarget(self, action: #selector(changeSlider), for: .valueChanged)
     }
 
+    // MARK: - Private Methods
+
     private func setupPlayer() {
         trackImage.image = UIImage(named: "\(tracks[activeTrackIndex].trackImageName)")
         trackNameLabel.text = tracks[activeTrackIndex].trackName
         artistLabel.text = tracks[activeTrackIndex].artist
-//        durationLabel.text = tracks[activeTrackIndex].dutarion
 
         let address = tracks[activeTrackIndex].address
 
         do {
             if let audioPath = Bundle.main.path(forResource: address, ofType: "mp3") {
                 try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                player.prepareToPlay()
                 trackDurationSlider.maximumValue = Float(player.duration)
             }
         } catch {
@@ -88,7 +95,7 @@ class PlayerViewController: UIViewController {
         )
     }
 
-    @objc func updateTimeLabelAndDurationSlider() {
+    @objc private func updateTimeLabelAndDurationSlider() {
         let currentTime = Int(player.currentTime)
         let minutes = currentTime / 60
         let seconds = currentTime % 60
@@ -99,29 +106,28 @@ class PlayerViewController: UIViewController {
         trackDurationSlider.value = Float(player.currentTime)
     }
 
-    @objc func changeSlider(sender: UISlider) {
+    @objc private func changeSlider(sender: UISlider) {
         if sender.isEqual(trackDurationSlider) {
             player.currentTime = TimeInterval(sender.value)
         }
     }
 
-    @IBAction func volumeSliderChanged(_ sender: UISlider) {
+    @IBAction private func volumeSliderChanged(_ sender: UISlider) {
         player.volume = volumeSlider.value
     }
 
-    @IBAction func trackDorationSliderChanged(_ sender: UISlider) {
+    @IBAction private func trackDurationSliderChanged(_ sender: UISlider) {
         player.currentTime = TimeInterval(trackDurationSlider.value)
     }
 
-    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+    @IBAction private func playPauseButtonTapped(_ sender: UIButton) {
         playPause()
     }
 
-    @IBAction func forwardButtonTapped(_ sender: UIButton) {
+    @IBAction private func forwardButtonTapped(_ sender: UIButton) {
         let isPlaying = player.isPlaying
 
         if activeTrackIndex == tracks.count - 1 {
-            print("error: trackIndex out of range")
             return
         } else {
             activeTrackIndex += 1
@@ -132,11 +138,10 @@ class PlayerViewController: UIViewController {
         }
     }
 
-    @IBAction func backwardButtonTapped(_ sender: Any) {
+    @IBAction private func backwardButtonTapped(_ sender: Any) {
         let isPlaying = player.isPlaying
 
         if activeTrackIndex == 0 {
-            print("error: trackIndex out of range")
             return
         } else {
             activeTrackIndex -= 1
@@ -147,7 +152,7 @@ class PlayerViewController: UIViewController {
         }
     }
 
-    @IBAction func dismissButtonTapped(_ sender: UIButton) {
+    @IBAction private func dismissButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }

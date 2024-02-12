@@ -223,7 +223,7 @@
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </variation>
                                 <connections>
-                                    <action selector="trackDorationSliderChanged:" destination="iUO-Am-HIC" eventType="valueChanged" id="M9w-Zw-nl1"/>
+                                    <action selector="trackDurationSliderChanged:" destination="iUO-Am-HIC" eventType="valueChanged" id="4b2-Xk-6mJ"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5u-vj-fq1">

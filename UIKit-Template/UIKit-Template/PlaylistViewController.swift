@@ -3,8 +3,10 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController {
-    let tracks = [
+final class PlaylistViewController: UIViewController {
+    // MARK: - Public Properties
+
+    private let tracks = [
         TrackInfo(
             trackName: "Let It Be",
             artist: "The Beatles",
@@ -28,28 +30,7 @@ class PlaylistViewController: UIViewController {
         )
     ]
 
-    private func pushDataToPlayerViewController(trackIndex: Int) {
-        let playerVC = PlayerViewController()
-        playerVC.tracks = tracks
-        playerVC.activeTrackIndex = trackIndex
-    }
-
-    @IBAction func trackButtonTapped(_ sender: UIButton) {
-//        let playerVC = PlayerViewController()
-//        playerVC.tracks = tracks
-//
-//        var activeTrack = 0
-//        switch sender.titleLabel?.text {
-//        case "Let it be": activeTrack = 0
-//        case "Yesterday": activeTrack = 1
-//        case "The Show Must Go On": activeTrack = 2
-//        default: break
-//        }
-//
-//        playerVC.activeTrackIndex = activeTrack
-//
-//        navigationController?.pushViewController(playerVC, animated: true)
-    }
+    // MARK: - Overrides Methods (View Life Cycles)
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Проверяем, что идентификатор перехода совпадает с тем, который вы указали в Interface Builder
@@ -71,5 +52,13 @@ class PlaylistViewController: UIViewController {
                 destinationVC.activeTrackIndex = activeTrack
             }
         }
+    }
+
+    // MARK: - Private Methods
+
+    private func pushDataToPlayerViewController(trackIndex: Int) {
+        let playerVC = PlayerViewController()
+        playerVC.tracks = tracks
+        playerVC.activeTrackIndex = trackIndex
     }
 }
