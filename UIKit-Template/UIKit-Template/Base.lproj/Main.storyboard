@@ -56,7 +56,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="trackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iQi-aO-CQT"/>
-                                    <segue destination="iUO-Am-HIC" kind="presentation" id="dvj-PN-yeg"/>
+                                    <segue destination="iUO-Am-HIC" kind="presentation" identifier="toPlayerViewController" id="OfP-Kz-mXk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04:03" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkX-ma-n88">
@@ -99,6 +99,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="trackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dhc-kg-383"/>
+                                    <segue destination="iUO-Am-HIC" kind="presentation" identifier="toPlayerViewController" id="zKf-Id-iGP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02:05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ap-Mg-68d">
@@ -148,6 +149,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="trackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cY-eo-OeU"/>
+                                    <segue destination="iUO-Am-HIC" kind="presentation" identifier="toPlayerViewController" id="5yT-zh-Bob"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -316,6 +318,9 @@
             <point key="canvasLocation" x="130.53435114503816" y="-55.633802816901408"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OfP-Kz-mXk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="101"/>
         <image name="forward.end.fill" catalog="system" width="128" height="101"/>
