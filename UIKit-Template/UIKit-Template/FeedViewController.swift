@@ -98,9 +98,7 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: Constants.recommendationCellIdentifier,
                 for: indexPath
             ) as? RecommendationTableViewCell {
-                // настройки ячейки рекоммендаций, создание скроллВью
-
-                cell.backgroundColor = .blue
+                cell.authors = recommendations
                 return cell
             }
         } else {

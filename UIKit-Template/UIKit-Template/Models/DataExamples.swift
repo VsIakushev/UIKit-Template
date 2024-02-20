@@ -18,7 +18,9 @@ struct DataExamples {
     static func createRecommendations() -> [Author] {
         [
             Author(name: "crimea_082", avatar: UIImage.crimea),
-            Author(name: "crimea_082", avatar: UIImage.crimea)
+            Author(name: "mary_pol", avatar: UIImage.girlAtFarm),
+            Author(name: "Tours", avatar: UIImage.mountains),
+            Author(name: "Hikes", avatar: UIImage.mountains1)
         ]
     }
 
