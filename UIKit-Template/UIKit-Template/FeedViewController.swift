@@ -18,9 +18,9 @@ final class FeedViewController: UIViewController {
 
     var tableView = UITableView()
 
-    var stories: [Author] = []
-    var posts: [Post] = []
-    var recommendations: [Author] = []
+    var stories: [Author] = DataExamples.createStories()
+    var posts: [Post] = DataExamples.createPosts()
+    var recommendations: [Author] = DataExamples.createRecommendations()
 
     // MARK: - Life Cycle
 
@@ -35,54 +35,6 @@ final class FeedViewController: UIViewController {
     // MARK: - Private Methods
 
     private func configureTableView() {
-        // временно для проверки
-        stories = [
-            Author(name: "John", avatar: UIImage.lavanda),
-            Author(name: "Anna", avatar: UIImage.lavanda)
-        ]
-        recommendations = [
-            Author(name: "crimea_082", avatar: UIImage.crimea),
-            Author(name: "crimea_082", avatar: UIImage.crimea)
-        ]
-        posts = [
-            Post(
-                author: Author(name: "Bob", avatar: UIImage.lavanda),
-                image: UIImage.mountains,
-                likes: 15,
-                text: "Some post text"
-            ),
-            Post(
-                author: Author(name: "Bob", avatar: UIImage.lavanda),
-                image: UIImage.mountains,
-                likes: 15,
-                text: "Some post text"
-            ),
-            Post(
-                author: Author(name: "Bob", avatar: UIImage.lavanda),
-                image: UIImage.mountains,
-                likes: 15,
-                text: "Some post text"
-            ),
-            Post(
-                author: Author(name: "Bob", avatar: UIImage.lavanda),
-                image: UIImage.mountains,
-                likes: 15,
-                text: "Some post text"
-            ),
-            Post(
-                author: Author(name: "Bob", avatar: UIImage.lavanda),
-                image: UIImage.mountains,
-                likes: 15,
-                text: "Some post text"
-            ),
-            Post(
-                author: Author(name: "Bob", avatar: UIImage.lavanda),
-                image: UIImage.mountains,
-                likes: 15,
-                text: "Some post text"
-            )
-        ]
-
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.dataSource = self
@@ -137,9 +89,7 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: Constants.storyCellIdentifier,
                 for: indexPath
             ) as? StoryTableViewCell {
-                // настройки ячейки сторис, создание скроллВью
-                cell.contentView.backgroundColor = .green
-                cell.backgroundColor = .green
+                cell.authors = stories
                 return cell
             }
 
@@ -172,7 +122,7 @@ extension FeedViewController: UITableViewDataSource {
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 85
+            return 94
         } else if indexPath.row == 2 {
             return 270
         } else {

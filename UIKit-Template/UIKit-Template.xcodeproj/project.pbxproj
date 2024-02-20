@@ -18,11 +18,11 @@
 		57C171602B841F1600495720 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1715F2B841F1600495720 /* ProfileViewController.swift */; };
 		57C171622B84346300495720 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171612B84346300495720 /* Story.swift */; };
 		57C171652B8437DB00495720 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171642B8437DB00495720 /* Post.swift */; };
-		57C171672B8437F600495720 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171662B8437F600495720 /* Recommendation.swift */; };
 		57C171692B84385300495720 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171682B84385300495720 /* Author.swift */; };
 		57C1716B2B84392F00495720 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1716A2B84392F00495720 /* StoryTableViewCell.swift */; };
 		57C1716D2B84394700495720 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1716C2B84394700495720 /* PostTableViewCell.swift */; };
 		57C1716F2B84396100495720 /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */; };
+		57C171772B84674A00495720 /* DataExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171762B84674A00495720 /* DataExamples.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +39,11 @@
 		57C1715F2B841F1600495720 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		57C171612B84346300495720 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		57C171642B8437DB00495720 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		57C171662B8437F600495720 /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		57C171682B84385300495720 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		57C1716A2B84392F00495720 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		57C1716C2B84394700495720 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
+		57C171762B84674A00495720 /* DataExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExamples.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +95,12 @@
 			isa = PBXGroup;
 			children = (
 				57C171612B84346300495720 /* Story.swift */,
+				57C171762B84674A00495720 /* DataExamples.swift */,
 				57C1716A2B84392F00495720 /* StoryTableViewCell.swift */,
 				57C1716C2B84394700495720 /* PostTableViewCell.swift */,
 				57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */,
 				57C171682B84385300495720 /* Author.swift */,
 				57C171642B8437DB00495720 /* Post.swift */,
-				57C171662B8437F600495720 /* Recommendation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57C171672B8437F600495720 /* Recommendation.swift in Sources */,
+				57C171772B84674A00495720 /* DataExamples.swift in Sources */,
 				57C1716F2B84396100495720 /* RecommendationTableViewCell.swift in Sources */,
 				57C171622B84346300495720 /* Story.swift in Sources */,
 				57C171602B841F1600495720 /* ProfileViewController.swift in Sources */,
