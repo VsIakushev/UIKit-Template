@@ -47,6 +47,8 @@ final class FeedViewController: UIViewController {
             RecommendationTableViewCell.self,
             forCellReuseIdentifier: Constants.recommendationCellIdentifier
         )
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func setupNavigationBar() {
@@ -92,7 +94,6 @@ extension FeedViewController: UITableViewDataSource {
                 cell.authors = stories
                 return cell
             }
-
         } else if indexPath.row == 2 {
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.recommendationCellIdentifier,
@@ -114,10 +115,11 @@ extension FeedViewController: UITableViewDataSource {
                 return cell
             }
         }
-
         return UITableViewCell()
     }
 }
+
+// MARK: - Extension UITableViewDelegate
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -126,7 +128,6 @@ extension FeedViewController: UITableViewDelegate {
         } else if indexPath.row == 2 {
             return 270
         } else {
-//            return UITableView.automaticDimension
             return 450
         }
     }

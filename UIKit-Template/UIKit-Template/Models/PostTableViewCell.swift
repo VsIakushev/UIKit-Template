@@ -37,7 +37,8 @@ class PostTableViewCell: UITableViewCell {
         return button
     }()
 
-    private let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    private let scrollView = UIScrollView()
+    private let pageControl = UIPageControl()
 
     private let likeButton: UIButton = {
         let button = UIButton()
@@ -102,7 +103,12 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
 
-    private var postImages = [UIImage]()
+    private var postImages = [UIImage]() {
+        didSet {
+            pageControl.isHidden = postImages.count <= 1
+            pageControl.numberOfPages = postImages.count
+        }
+    }
 
     // MARK: - Init
 
@@ -130,46 +136,15 @@ class PostTableViewCell: UITableViewCell {
         likesLabel.font = Constants.boldFont
         postText.text = post.text
         myAvatar.image = UIImage.myAvatar
-
-        setupPageViewController()
+        configurateScrollView()
     }
 
     // MARK: - Private Methods
-
-    private func setupPageViewController() {
-        guard !postImages.isEmpty else { return }
-        let imagesViewControllers = postImages.map { image -> UIViewController in
-            let vc = UIViewController()
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: image.size.height)
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-
-            vc.view.addSubview(imageView)
-            return vc
-        }
-
-        let firstImageViewController = imagesViewControllers[0]
-        pageViewController
-            .setViewControllers([firstImageViewController], direction: .forward, animated: true) { [weak self] _ in
-                self?.updatePageViewControllerHeight()
-            }
-    }
-
-    private func updatePageViewControllerHeight() {
-        guard let firstImageViewController = pageViewController.viewControllers?.first,
-              let imageView = firstImageViewController.view.subviews.first as? UIImageView else { return }
-
-        // Обновление высоты pageViewController в соответствии с размером изображения
-        let imageHeight = imageView.frame.height
-        pageViewController.view.heightAnchor.constraint(equalToConstant: imageHeight).isActive = true
-    }
 
     private func setupUI() {
         addSubview(authorAvatarImageView)
         addSubview(authorNameLabel)
         addSubview(actionsButton)
-        addSubview(pageViewController.view)
         addSubview(likeButton)
         addSubview(commentsButton)
         addSubview(shareButton)
@@ -180,10 +155,16 @@ class PostTableViewCell: UITableViewCell {
         addSubview(commentTextField)
         addSubview(timeLabel)
 
+        contentView.addSubview(scrollView)
+        contentView.addSubview(pageControl)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+
         authorAvatarImageView.translatesAutoresizingMaskIntoConstraints = false
         authorNameLabel.translatesAutoresizingMaskIntoConstraints = false
         actionsButton.translatesAutoresizingMaskIntoConstraints = false
-        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         commentsButton.translatesAutoresizingMaskIntoConstraints = false
         shareButton.translatesAutoresizingMaskIntoConstraints = false
@@ -210,14 +191,17 @@ class PostTableViewCell: UITableViewCell {
             actionsButton.centerYAnchor.constraint(equalTo: authorAvatarImageView.centerYAnchor),
             actionsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
 
-            pageViewController.view.topAnchor.constraint(equalTo: authorAvatarImageView.bottomAnchor, constant: 10),
-            pageViewController.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            pageViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            pageViewController.view.bottomAnchor.constraint(equalTo: likeButton.topAnchor, constant: -12),
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: authorAvatarImageView.bottomAnchor, constant: 10),
+            scrollView.heightAnchor.constraint(equalToConstant: 239),
+
+            pageControl.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 18),
+            pageControl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 
             likeButton.widthAnchor.constraint(equalToConstant: 24),
             likeButton.heightAnchor.constraint(equalToConstant: 24),
-            likeButton.topAnchor.constraint(equalTo: pageViewController.view.bottomAnchor, constant: 8),
+            likeButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8),
             likeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
 
             commentsButton.widthAnchor.constraint(equalToConstant: 24),
@@ -243,7 +227,7 @@ class PostTableViewCell: UITableViewCell {
             postText.topAnchor.constraint(equalTo: likesLabel.bottomAnchor, constant: 6),
             postText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 13),
             postText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
-            postText.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -20),
+            postText.heightAnchor.constraint(equalToConstant: 30),
 
             myAvatar.widthAnchor.constraint(equalToConstant: 20),
             myAvatar.heightAnchor.constraint(equalToConstant: 20),
@@ -263,6 +247,31 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
 
+    private func configurateScrollView() {
+        scrollView.showsHorizontalScrollIndicator = false
+
+        scrollView.backgroundColor = .white
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(postImages.count), height: 239)
+        scrollView.isPagingEnabled = true
+        scrollView.delegate = self
+
+        for (index, image) in postImages.enumerated() {
+            addImage(image: image, position: CGFloat(index))
+        }
+
+        pageControl.numberOfPages = postImages.count
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .black
+    }
+
+    private func addImage(image: UIImage, position: CGFloat) {
+        let imageView = UIImageView()
+        imageView.image = image
+        scrollView.addSubview(imageView)
+        let screenWidth = UIScreen.main.bounds.width
+        imageView.frame = CGRect(x: screenWidth * position, y: 0, width: screenWidth, height: 239)
+    }
+
     @objc private func actionsButtonTapped() {}
 
     @objc private func likeButtonTapped() {}
@@ -272,4 +281,12 @@ class PostTableViewCell: UITableViewCell {
     @objc private func shareButtonTapped() {}
 
     @objc private func bookmarkButtonTapped() {}
+}
+
+// MARK: - Extension UIScrollViewDelegate
+
+extension PostTableViewCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
+    }
 }

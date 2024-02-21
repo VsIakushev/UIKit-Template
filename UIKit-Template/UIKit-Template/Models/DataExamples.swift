@@ -28,7 +28,7 @@ struct DataExamples {
         [
             Post(
                 author: Author(name: "tur_v_dagestan", avatar: UIImage.mountains),
-                images: [UIImage.mountains, UIImage.mountains1],
+                images: [UIImage.mountains, UIImage.mountains1, UIImage.mountains],
                 likes: 201,
                 text: "Насладитесь красотой природы. Забронировать тур в дагестан можно уже сейчас!"
             ),
