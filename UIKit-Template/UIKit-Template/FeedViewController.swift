@@ -106,9 +106,11 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: Constants.postCellIdentifier,
                 for: indexPath
             ) as? PostTableViewCell {
-                // настройка поста
-
-                cell.backgroundColor = .lightGray
+                guard indexPath.row < posts.count else {
+                    return cell
+                }
+                let post = posts[indexPath.row]
+                cell.configure(with: post)
                 return cell
             }
         }
@@ -124,7 +126,8 @@ extension FeedViewController: UITableViewDelegate {
         } else if indexPath.row == 2 {
             return 270
         } else {
-            return UITableView.automaticDimension
+//            return UITableView.automaticDimension
+            return 450
         }
     }
 }
