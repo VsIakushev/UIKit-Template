@@ -111,7 +111,7 @@ final class PostTableViewCell: UITableViewCell {
         }
     }
 
-    // MARK: - Init
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -121,17 +121,18 @@ final class PostTableViewCell: UITableViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupUI()
+        selectionStyle = .none
     }
 
     // MARK: - Public Methods
 
     func configure(with post: Post) {
-        authorAvatarImageView.image = post.author.avatar
+        authorAvatarImageView.image = UIImage(named: post.author.avatar)
         authorNameLabel.text = post.author.name
         timeLabel.text = Constants.timeAgo
-        postImages = post.images
-
+        postImages = setupImages(strings: post.images)
         likesLabel.text = "Нравится: \(post.likes)"
         likesLabel.textColor = .black
         likesLabel.font = Constants.boldFont
@@ -142,40 +143,43 @@ final class PostTableViewCell: UITableViewCell {
 
     // MARK: - Private Methods
 
+    private func setupImages(strings: [String]) -> [UIImage] {
+        var images: [UIImage] = []
+        strings.forEach { string in
+            guard let image = UIImage(named: string) else { return }
+            images.append(image)
+        }
+        return images
+    }
+
     private func setupUI() {
-        addSubview(authorAvatarImageView)
-        addSubview(authorNameLabel)
-        addSubview(actionsButton)
-        addSubview(likeButton)
-        addSubview(commentsButton)
-        addSubview(shareButton)
-        addSubview(bookmarkButton)
-        addSubview(likesLabel)
-        addSubview(postText)
-        addSubview(myAvatar)
-        addSubview(commentTextField)
-        addSubview(timeLabel)
+        let elements = [
+            authorAvatarImageView,
+            authorNameLabel,
+            actionsButton,
+            likeButton,
+            commentsButton,
+            shareButton,
+            bookmarkButton,
+            likesLabel,
+            postText,
+            myAvatar,
+            commentTextField,
+            timeLabel,
+        ]
+
+        elements.forEach { addSubview($0) }
+        elements.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
         contentView.addSubview(scrollView)
         contentView.addSubview(pageControl)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         pageControl.translatesAutoresizingMaskIntoConstraints = false
 
-        authorAvatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        authorNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        actionsButton.translatesAutoresizingMaskIntoConstraints = false
+        setConstraints()
+    }
 
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        likeButton.translatesAutoresizingMaskIntoConstraints = false
-        commentsButton.translatesAutoresizingMaskIntoConstraints = false
-        shareButton.translatesAutoresizingMaskIntoConstraints = false
-        bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
-        likesLabel.translatesAutoresizingMaskIntoConstraints = false
-        postText.translatesAutoresizingMaskIntoConstraints = false
-        myAvatar.translatesAutoresizingMaskIntoConstraints = false
-        commentTextField.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             authorAvatarImageView.widthAnchor.constraint(equalToConstant: 30),
             authorAvatarImageView.heightAnchor.constraint(equalToConstant: 30),

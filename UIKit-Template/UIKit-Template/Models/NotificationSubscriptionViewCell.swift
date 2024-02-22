@@ -16,6 +16,8 @@ final class NotificationSubscriptionViewCell: UITableViewCell {
         static let buttonColor = #colorLiteral(red: 0.2012029588, green: 0.480709672, blue: 1, alpha: 1)
     }
 
+    // MARK: - Private Properties
+
     private let authorAvatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -54,7 +56,7 @@ final class NotificationSubscriptionViewCell: UITableViewCell {
     // MARK: - Public Properties
 
     func configureCell(notification: NotificationSubscription) {
-        authorAvatarImageView.image = notification.author.avatar
+        authorAvatarImageView.image = UIImage(named: notification.author.avatar)
         let text = ""
         descriptionLabel.attributedText = text.configureDescriptionsFormat(
             nameString: notification.author.name,

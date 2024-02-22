@@ -5,9 +5,12 @@ import UIKit
 
 /// Экран для отображения уведомлений
 final class NotificationsViewController: UIViewController {
-    enum RowsType {
-        case notificationPost
-        case notificationSubscription
+    /// Перечисление секций в уведомлениях
+    enum CellTypeNotifications {
+        /// Сегодняшние уведомления
+        case today
+        /// Уведомления этой недели
+        case thisWeek
     }
 
     // MARK: - Constants
@@ -56,16 +59,60 @@ final class NotificationsViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private let notificationPosts = DataExamples.createNotificationPosts()
-    private let notificationSubscriptions = DataExamples.createNotificationSubscriptions()
+    private let todayType = [
+        NotificationPost(
+            author: Author(name: "lavanda123", avatar: "lavanda"),
+            postDescription: "Понравился ваш комментарий: \"Очень красиво!\"",
+            dateComment: "10ч",
+            postPicture: "mountains"
+        ),
+        NotificationPost(
+            author: Author(name: "lavanda123", avatar: "lavanda"),
+            postDescription: "упомянул(-а) вас в комментарии: @rm Спасибо!",
+            dateComment: "11ч",
+            postPicture: "mountains1"
+        )
+    ]
 
-    private let typeRows: [RowsType] = [.notificationPost, .notificationSubscription]
+    private let thisWeekType: [Any] = [
+        NotificationPost(
+            author: Author(name: "lavanda123", avatar: "lavanda"),
+            postDescription: "упомянул(-а) вас в комментарии: @rm Спасибо!",
+            dateComment: "1д",
+            postPicture: "mountains1"
+        ),
+        NotificationSubscription(
+            author: Author(name: "12miho", avatar: "guy"),
+            postDescription: "появился(-ась) в RMLink. Вы можете быть знакомы",
+            dateComment: "3д",
+            isPressed: false
+        ),
+        NotificationSubscription(
+            author: Author(name: "lavanda123", avatar: "lavanda"),
+            postDescription: "появился(-ась) в RMLink. Вы можете быть знакомы",
+            dateComment: "5д",
+            isPressed: true
+        ),
+        NotificationPost(
+            author: Author(name: "lavanda123", avatar: "lavanda"),
+            postDescription: "Понравился ваш комментарий: \"Это вы где?\"",
+            dateComment: "6д",
+            postPicture: "crimea"
+        ),
+        NotificationSubscription(
+            author: Author(name: "crimea_tours", avatar: "crimea"),
+            postDescription: "появился(-ась) в RMLink. Вы можете быть знакомы",
+            dateComment: "7д",
+            isPressed: false
+        )
+    ]
+
+    private let content: [CellTypeNotifications] = [.today, .thisWeek]
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupNavigation()
         addViews()
         setConstraints()
@@ -83,6 +130,7 @@ final class NotificationsViewController: UIViewController {
     }
 
     private func addViews() {
+        view.backgroundColor = .white
         view.addSubview(requestsLabel)
         view.addSubview(notificationTableView)
     }
@@ -105,7 +153,7 @@ final class NotificationsViewController: UIViewController {
     }
 }
 
-// MARK: - Extension UITableViewDataSource
+// MARK: - NotificationViewController + UITableViewDataSource
 
 extension NotificationsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -113,43 +161,53 @@ extension NotificationsViewController: UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        typeRows.count
+        content.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let typeRow = typeRows[section]
-        switch typeRow {
-        case .notificationPost:
-            return notificationPosts.count
-        case .notificationSubscription:
-            return notificationSubscriptions.count
+        let cell = content[section]
+        switch cell {
+        case .today: return todayType.count
+        case .thisWeek: return thisWeekType.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let typeCell = typeRows[indexPath.section]
-        switch typeCell {
-        case .notificationPost:
-            if let cell = tableView.dequeueReusableCell(
+        let items = content[indexPath.section]
+        switch items {
+        case .today:
+            guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.notificationPostIdentifier,
                 for: indexPath
-            ) as? NotificationPostViewCell {
-                cell.configureCell(notification: notificationPosts[indexPath.row])
-            }
+            ) as? NotificationPostViewCell
+            else { return UITableViewCell() }
+            cell.configureCell(notification: todayType[indexPath.row])
 
-        case .notificationSubscription:
-            if let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constants.notificationSubscriptionIdentifier,
-                for: indexPath
-            ) as? NotificationSubscriptionViewCell {
-                cell.configureCell(notification: notificationSubscriptions[indexPath.row])
+            return cell
+        case .thisWeek:
+            if let userPost = thisWeekType[indexPath.row] as? NotificationSubscription {
+                if let cell = tableView.dequeueReusableCell(
+                    withIdentifier: Constants.notificationSubscriptionIdentifier,
+                    for: indexPath
+                ) as? NotificationSubscriptionViewCell {
+                    cell.configureCell(notification: userPost)
+                    return cell
+                }
+            } else if let userPost = thisWeekType[indexPath.row] as? NotificationPost {
+                if let cell = tableView.dequeueReusableCell(
+                    withIdentifier: Constants.notificationPostIdentifier,
+                    for: indexPath
+                ) as? NotificationPostViewCell {
+                    cell.configureCell(notification: userPost)
+                    return cell
+                }
             }
         }
         return UITableViewCell()
     }
 }
 
-// MARK: - Extension UITableViewDelegate
+// MARK: - NotificationViewController + UITableViewDelegate
 
 extension NotificationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

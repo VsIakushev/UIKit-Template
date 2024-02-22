@@ -18,9 +18,9 @@ final class FeedViewController: UIViewController {
 
     var tableView = UITableView()
 
-    var stories: [Author] = DataExamples.createStories()
-    var posts: [Post] = DataExamples.createPosts()
-    var recommendations: [Author] = DataExamples.createRecommendations()
+    var stories: [Author] = Author.createStories()
+    var posts: [Post] = Post.createPosts()
+    var recommendations: [Author] = Author.createRecommendations()
 
     // MARK: - Life Cycle
 

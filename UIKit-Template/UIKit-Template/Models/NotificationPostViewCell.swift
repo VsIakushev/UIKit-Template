@@ -39,14 +39,14 @@ final class NotificationPostViewCell: UITableViewCell {
     // MARK: - Public Properties
 
     func configureCell(notification: NotificationPost) {
-        authorAvatarImageView.image = notification.author.avatar
+        authorAvatarImageView.image = UIImage(named: notification.author.avatar)
         let text = ""
         descriptionLabel.attributedText = text.configureDescriptionsFormat(
             nameString: notification.author.name,
             descriptionString: notification.postDescription,
             dateString: notification.dateComment
         )
-        comentedImageView.image = notification.postPicture
+        comentedImageView.image = UIImage(named: notification.postPicture)
         contentView.addSubview(authorAvatarImageView)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(comentedImageView)

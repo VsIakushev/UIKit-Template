@@ -53,7 +53,18 @@ final class RecommendationTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+    }
 
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+
+    // MARK: - Private Methods
+
+    private func setupUI() {
         contentView.addSubview(scrollView)
         contentView.addSubview(sectionTitleLabel)
 
@@ -70,13 +81,6 @@ final class RecommendationTableViewCell: UITableViewCell {
             sectionTitleLabel.heightAnchor.constraint(equalToConstant: 15)
         ])
     }
-
-    @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - Private Methods
 
     private func updateUI() {
         scrollView.subviews.forEach { $0.removeFromSuperview() }
@@ -96,7 +100,7 @@ final class RecommendationTableViewCell: UITableViewCell {
             backgroundView.backgroundColor = .white
             scrollView.addSubview(backgroundView)
 
-            let avatarImageView = UIImageView(image: author.avatar)
+            let avatarImageView = UIImageView(image: UIImage(named: author.avatar))
             avatarImageView.translatesAutoresizingMaskIntoConstraints = false
             avatarImageView.contentMode = .scaleAspectFill
             avatarImageView.layer.cornerRadius = 60
