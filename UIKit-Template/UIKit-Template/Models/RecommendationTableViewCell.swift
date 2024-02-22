@@ -3,7 +3,8 @@
 
 import UIKit
 
-class RecommendationTableViewCell: UITableViewCell {
+/// Ячейка элемента ленты рекомендаций
+final class RecommendationTableViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {

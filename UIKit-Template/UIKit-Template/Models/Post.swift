@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Модель данных необходимых для отображения поста
 struct Post {
     let author: Author
     let images: [UIImage]

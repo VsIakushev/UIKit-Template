@@ -3,7 +3,54 @@
 
 import UIKit
 
+/// Имитация работы бэка, возвращает данные для создания ячеек
 struct DataExamples {
+    static func createNotificationPosts() -> [NotificationPost] {
+        [
+            .init(
+                author: Author(name: "lavanda123", avatar: UIImage.lavanda),
+                postDescription: "Понравился ваш комментарий: \"Очень красиво!\"",
+                dateComment: "10ч",
+                postPicture: UIImage.mountains
+            ),
+            .init(
+                author: Author(name: "lavanda123", avatar: UIImage.lavanda),
+                postDescription: "упомянул(-а) вас в комментарии: @rm Спасибо!",
+                dateComment: "11ч",
+                postPicture: UIImage.mountains1
+            ),
+            .init(
+                author: Author(name: "lavanda123", avatar: UIImage.lavanda),
+                postDescription: "Понравился ваш комментарий: \"Это вы где?\"",
+                dateComment: "16ч",
+                postPicture: UIImage.crimea
+            )
+        ]
+    }
+
+    static func createNotificationSubscriptions() -> [NotificationSubscription] {
+        [
+            .init(
+                author: Author(name: "12miho", avatar: UIImage.guy),
+                postDescription: "появился(-ась) в RMLink. Вы можете быть знакомы",
+                dateComment: "3д",
+                isPressed: false
+            ),
+            .init(
+                author: Author(name: "lavanda123", avatar: UIImage.lavanda),
+                postDescription: "появился(-ась) в RMLink. Вы можете быть знакомы",
+                dateComment: "5д",
+                isPressed: true
+            ),
+            .init(
+                author: Author(name: "crimea_tours", avatar: UIImage.crimea),
+                postDescription: "появился(-ась) в RMLink. Вы можете быть знакомы",
+                dateComment: "7д",
+                isPressed: false
+            ),
+        ]
+    }
+
     static func createStories() -> [Author] {
         [
             .init(name: "Ваша история", avatar: UIImage.myAvatar),
@@ -34,7 +81,7 @@ struct DataExamples {
             ),
             Post(
                 author: Author(name: "hikes_in_dagestan", avatar: UIImage.mountains1),
-                images: [UIImage.mountains1, UIImage.mountains],
+                images: [UIImage.mountains1, UIImage.mountains, UIImage.mountains1],
                 likes: 188,
                 text: "Самые живописные маршруты по горам Кавказа"
             ),

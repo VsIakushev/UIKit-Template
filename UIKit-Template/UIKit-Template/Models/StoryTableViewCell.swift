@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Ячейка элемента ленты сторис
 final class StoryTableViewCell: UITableViewCell {
     // MARK: - Constants
 

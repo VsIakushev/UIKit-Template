@@ -3,7 +3,8 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+/// Ячейка элемента ленты постов
+final class PostTableViewCell: UITableViewCell {
     // MARK: - Constants
 
     enum Constants {

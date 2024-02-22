@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Информация о пользователе, авторе постов и сторис
 struct Author {
     let name: String
     let avatar: UIImage

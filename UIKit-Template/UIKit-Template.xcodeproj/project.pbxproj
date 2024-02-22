@@ -23,6 +23,11 @@
 		57C1716D2B84394700495720 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1716C2B84394700495720 /* PostTableViewCell.swift */; };
 		57C1716F2B84396100495720 /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */; };
 		57C171772B84674A00495720 /* DataExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171762B84674A00495720 /* DataExamples.swift */; };
+		57C171BB2B86E62100495720 /* NotificationSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171BA2B86E62100495720 /* NotificationSubscription.swift */; };
+		57C171BD2B86E64600495720 /* NotificationPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171BC2B86E64600495720 /* NotificationPost.swift */; };
+		57C171BF2B86E66400495720 /* NotificationPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */; };
+		57C171C12B86E67A00495720 /* NotificationSubscriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */; };
+		57C171C32B86E6A100495720 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171C22B86E6A100495720 /* Extension+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		57C1716C2B84394700495720 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
 		57C171762B84674A00495720 /* DataExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExamples.swift; sourceTree = "<group>"; };
+		57C171BA2B86E62100495720 /* NotificationSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSubscription.swift; sourceTree = "<group>"; };
+		57C171BC2B86E64600495720 /* NotificationPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPost.swift; sourceTree = "<group>"; };
+		57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPostViewCell.swift; sourceTree = "<group>"; };
+		57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSubscriptionViewCell.swift; sourceTree = "<group>"; };
+		57C171C22B86E6A100495720 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,7 @@
 				5733135D2B73215B00092647 /* SceneDelegate.swift */,
 				57C1715B2B841EC300495720 /* TabBarController.swift */,
 				5733135F2B73215B00092647 /* FeedViewController.swift */,
+				57C171C42B86E6A800495720 /* Extensions */,
 				57C171632B8437CE00495720 /* Models */,
 				57C1715D2B841EFD00495720 /* NotificationsViewController.swift */,
 				57C1715F2B841F1600495720 /* ProfileViewController.swift */,
@@ -101,8 +112,20 @@
 				57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */,
 				57C171682B84385300495720 /* Author.swift */,
 				57C171642B8437DB00495720 /* Post.swift */,
+				57C171BA2B86E62100495720 /* NotificationSubscription.swift */,
+				57C171BC2B86E64600495720 /* NotificationPost.swift */,
+				57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */,
+				57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		57C171C42B86E6A800495720 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57C171C22B86E6A100495720 /* Extension+String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,15 +245,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				57C171772B84674A00495720 /* DataExamples.swift in Sources */,
+				57C171BF2B86E66400495720 /* NotificationPostViewCell.swift in Sources */,
 				57C1716F2B84396100495720 /* RecommendationTableViewCell.swift in Sources */,
 				57C171622B84346300495720 /* Story.swift in Sources */,
+				57C171BB2B86E62100495720 /* NotificationSubscription.swift in Sources */,
 				57C171602B841F1600495720 /* ProfileViewController.swift in Sources */,
+				57C171BD2B86E64600495720 /* NotificationPost.swift in Sources */,
 				57C1716B2B84392F00495720 /* StoryTableViewCell.swift in Sources */,
 				57C1715E2B841EFD00495720 /* NotificationsViewController.swift in Sources */,
 				57C171692B84385300495720 /* Author.swift in Sources */,
 				57C171652B8437DB00495720 /* Post.swift in Sources */,
+				57C171C12B86E67A00495720 /* NotificationSubscriptionViewCell.swift in Sources */,
 				573313602B73215B00092647 /* FeedViewController.swift in Sources */,
 				57C1715C2B841EC300495720 /* TabBarController.swift in Sources */,
+				57C171C32B86E6A100495720 /* Extension+String.swift in Sources */,
 				5733135C2B73215B00092647 /* AppDelegate.swift in Sources */,
 				5733135E2B73215B00092647 /* SceneDelegate.swift in Sources */,
 				57C1716D2B84394700495720 /* PostTableViewCell.swift in Sources */,

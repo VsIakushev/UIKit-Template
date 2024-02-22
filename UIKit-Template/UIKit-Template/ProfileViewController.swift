@@ -3,7 +3,8 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+/// Экран с данными пользователя
+final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
