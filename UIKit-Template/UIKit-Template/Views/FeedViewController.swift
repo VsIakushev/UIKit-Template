@@ -3,6 +3,8 @@
 
 import UIKit
 
+
+/// Экран ленты приложения
 final class FeedViewController: UIViewController {
     // MARK: - Constants
 
@@ -26,13 +28,18 @@ final class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupUI()
+    }
+    
+    
 
+    // MARK: - Private Methods
+    
+    private func setupUI() {
+        view.backgroundColor = .white
         setupNavigationBar()
         configureTableView()
     }
-
-    // MARK: - Private Methods
 
     private func configureTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)

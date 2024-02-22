@@ -84,12 +84,8 @@
 			children = (
 				5733135B2B73215B00092647 /* AppDelegate.swift */,
 				5733135D2B73215B00092647 /* SceneDelegate.swift */,
-				57C1715B2B841EC300495720 /* TabBarController.swift */,
-				5733135F2B73215B00092647 /* FeedViewController.swift */,
-				57C171C42B86E6A800495720 /* Extensions */,
 				57C171632B8437CE00495720 /* Models */,
-				57C1715D2B841EFD00495720 /* NotificationsViewController.swift */,
-				57C1715F2B841F1600495720 /* ProfileViewController.swift */,
+				57C1722E2B8807B200495720 /* Views */,
 				573313612B73215B00092647 /* Main.storyboard */,
 				573313642B73215C00092647 /* Assets.xcassets */,
 				573313662B73215C00092647 /* LaunchScreen.storyboard */,
@@ -120,6 +116,18 @@
 				57C171C22B86E6A100495720 /* Extension+String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57C1722E2B8807B200495720 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57C1715B2B841EC300495720 /* TabBarController.swift */,
+				5733135F2B73215B00092647 /* FeedViewController.swift */,
+				57C1715D2B841EFD00495720 /* NotificationsViewController.swift */,
+				57C1715F2B841F1600495720 /* ProfileViewController.swift */,
+				57C171C42B86E6A800495720 /* Extensions */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
