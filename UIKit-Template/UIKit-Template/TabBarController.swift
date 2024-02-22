@@ -13,7 +13,7 @@ class TabBarController: UITabBarController {
     private func setupTabBar() {
         let feedNavigationController = UINavigationController(rootViewController: FeedViewController())
         let notificationsViewController = UINavigationController(rootViewController: NotificationsViewController())
-        let profileViewController = ProfileViewController()
+        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
 
         feedNavigationController.tabBarItem.title = "Лента"
         feedNavigationController.tabBarItem.image = UIImage.feedIcon

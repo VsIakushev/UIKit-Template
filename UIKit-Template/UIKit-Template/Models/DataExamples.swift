@@ -5,6 +5,41 @@ import UIKit
 
 /// Имитация работы бэка, возвращает данные для создания ячеек
 struct DataExamples {
+    static func createProfile() -> Profile {
+        Profile(
+            userLogin: "mary_rmLink",
+            userName: "Мария Иванова",
+            avatar: UIImage.profilePhoto,
+            description: "Консультант",
+            publications: 67,
+            subscribers: 458,
+            subscriptions: 120,
+            link: "www.spacex.com",
+            highlights: createHighlights(),
+            posts: createPosts(with: 15)
+        )
+    }
+
+    static func createHighlights() -> [Highlight] {
+        []
+    }
+
+    static func createPosts(with count: Int) -> [UIImage] {
+        let images = [UIImage.image01, UIImage.image02, UIImage.image03, UIImage.image04, UIImage.image05]
+        return (0 ..< count).map { _ in images.randomElement()! }
+    }
+
+    static func allHighlights() -> [Highlight] {
+        [
+            .init(image: UIImage.highlight01, title: "Запуск"),
+            .init(image: UIImage.highlight02, title: "Луна"),
+            .init(image: UIImage.highlight03, title: "Космонавт"),
+            .init(image: UIImage.highlight04, title: "Космос"),
+            .init(image: UIImage.highlight01, title: "Запуск"),
+            .init(image: UIImage.highlight02, title: "Луна")
+        ]
+    }
+
     static func createNotificationPosts() -> [NotificationPost] {
         [
             .init(
