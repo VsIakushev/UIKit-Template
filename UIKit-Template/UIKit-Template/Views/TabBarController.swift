@@ -15,13 +15,15 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupTabBar()
     }
 
     // MARK: - Private Methods
 
     private func setupTabBar() {
+        
+        view.backgroundColor = .white
+        
         let feedNavigationController = UINavigationController(rootViewController: FeedViewController())
         feedNavigationController.tabBarItem = UITabBarItem(
             title: Constants.feed,
