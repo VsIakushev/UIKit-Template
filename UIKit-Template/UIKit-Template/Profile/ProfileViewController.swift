@@ -43,6 +43,7 @@ final class ProfileViewController: UIViewController {
         tableView.delegate = self
         view.addSubview(tableView)
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
 
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
         tableView.register(

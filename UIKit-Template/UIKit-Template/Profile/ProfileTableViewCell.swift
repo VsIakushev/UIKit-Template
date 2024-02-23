@@ -228,7 +228,7 @@ class ProfileTableViewCell: UITableViewCell {
             addFriendButton.widthAnchor.constraint(equalToConstant: 25),
             addFriendButton.heightAnchor.constraint(equalToConstant: 28),
             addFriendButton.leadingAnchor.constraint(equalTo: shareProfileButton.trailingAnchor, constant: 5),
-            addFriendButton.centerYAnchor.constraint(equalTo: changeButton.centerYAnchor),
+            addFriendButton.centerYAnchor.constraint(equalTo: changeButton.centerYAnchor)
 
         ])
     }
