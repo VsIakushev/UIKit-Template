@@ -3,7 +3,6 @@
 
 import UIKit
 
-
 /// Экран ленты приложения
 final class FeedViewController: UIViewController {
     // MARK: - Constants
@@ -30,11 +29,9 @@ final class FeedViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
-    
 
     // MARK: - Private Methods
-    
+
     private func setupUI() {
         view.backgroundColor = .white
         setupNavigationBar()
