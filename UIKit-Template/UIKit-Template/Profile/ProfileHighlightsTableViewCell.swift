@@ -18,12 +18,11 @@ final class ProfileHighlightsTableViewCell: UITableViewCell {
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
-    
-    
+
     // MARK: - Private Properties
 
     private var highlights = Highlight.createHighlights()
-    
+
     // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,7 +36,7 @@ final class ProfileHighlightsTableViewCell: UITableViewCell {
     }
 
     // MARK: - Private Methods
-    
+
     private func setupUI() {
         contentView.backgroundColor = .white
         contentView.addSubview(scrollView)

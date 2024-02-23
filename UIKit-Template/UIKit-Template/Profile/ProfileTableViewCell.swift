@@ -58,7 +58,7 @@ final class ProfileTableViewCell: UITableViewCell {
         super.init(coder: coder)
         setupUI()
     }
-    
+
     // MARK: - Private Methods
 
     private func setupUI() {

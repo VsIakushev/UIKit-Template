@@ -6,8 +6,8 @@ import WebKit
 
 /// Экран Веб-Браузера
 final class WebViewController: UIViewController {
-    
     // MARK: - Visual Components
+
     private let webView = WKWebView()
 
     private let toolbar = UIToolbar()
@@ -16,15 +16,14 @@ final class WebViewController: UIViewController {
     private let spacer = UIBarButtonItem(systemItem: .flexibleSpace)
     private let refreshButtonItem = UIBarButtonItem(systemItem: .refresh)
 
-    
     // MARK: - Life Cycles
-    
+
     override func viewDidLoad() {
         setupUI()
         setupToolbar()
         loadRequest()
     }
-    
+
     // MARK: - Private Methods
 
     private func setupUI() {
@@ -81,6 +80,7 @@ final class WebViewController: UIViewController {
 }
 
 // MARK: - WebViewController + WKNavigationDelegate
+
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         backButtonItem.isEnabled = webView.canGoBack

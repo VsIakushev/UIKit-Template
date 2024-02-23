@@ -44,6 +44,7 @@ final class ProfileViewController: UIViewController {
         view.addSubview(tableView)
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
 
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
         tableView.register(
@@ -104,6 +105,7 @@ final class ProfileViewController: UIViewController {
 }
 
 // MARK: - ProfileViewController + UITableViewDelegate
+
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
@@ -124,6 +126,7 @@ extension ProfileViewController: UITableViewDelegate {
 }
 
 // MARK: - ProfileViewController + UITableViewDataSource
+
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         3

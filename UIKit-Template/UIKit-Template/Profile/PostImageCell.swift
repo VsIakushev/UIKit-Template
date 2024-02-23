@@ -2,15 +2,15 @@
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
+
 /// Изображение-превью поста в Профиле пользователя
 final class PostImageCell: UICollectionViewCell {
-    
     // MARK: - Public Properties
-    
+
     let imageView = UIImageView()
 
     // MARK: - Initializers
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -22,7 +22,7 @@ final class PostImageCell: UICollectionViewCell {
     }
 
     // MARK: - Private Methods
-    
+
     private func setup() {
         contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
