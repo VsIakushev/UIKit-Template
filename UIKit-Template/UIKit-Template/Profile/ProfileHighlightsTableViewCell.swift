@@ -3,16 +3,12 @@
 
 import UIKit
 
-/// Ячейка для отображения Хайлайтс
+/// Ячейка для отображения Хайлайтс в Профиле пользователя
 final class ProfileHighlightsTableViewCell: UITableViewCell {
     // Constants
     enum Constants {
         static let regularFont = UIFont(name: "Verdana", size: 10)
     }
-
-    // MARK: - Private Properties
-
-    var highlights = Highlight.createHighlights()
 
     // MARK: - Visual Components
 
@@ -22,6 +18,13 @@ final class ProfileHighlightsTableViewCell: UITableViewCell {
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
+    
+    
+    // MARK: - Private Properties
+
+    private var highlights = Highlight.createHighlights()
+    
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,6 +36,8 @@ final class ProfileHighlightsTableViewCell: UITableViewCell {
         setupUI()
     }
 
+    // MARK: - Private Methods
+    
     private func setupUI() {
         contentView.backgroundColor = .white
         contentView.addSubview(scrollView)

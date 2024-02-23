@@ -125,7 +125,7 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Extension UITableViewDelegate
+// MARK: - FeedViewController + UITableViewDelegate
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

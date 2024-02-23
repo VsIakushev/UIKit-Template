@@ -3,7 +3,8 @@
 
 import UIKit
 
-class ProfileTableViewCell: UITableViewCell {
+/// Ячейка с данными пользователя в Профиле
+final class ProfileTableViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -42,12 +43,9 @@ class ProfileTableViewCell: UITableViewCell {
     private let shareProfileButton = UIButton()
     private let addFriendButton = UIButton()
 
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
-    var profile = Profile.createProfile()
-
-//    var profile = Profile(userLogin: "", userName: "", avatar: "", description: "", publicationsQuantity: 0,
-//    subscribersQuantity: 0, subscriptionsQuantity: 0, link: "", highlights: [], posts: [])
+    private var profile = Profile.createProfile()
 
     // MARK: - Life Cycle
 
@@ -60,6 +58,8 @@ class ProfileTableViewCell: UITableViewCell {
         super.init(coder: coder)
         setupUI()
     }
+    
+    // MARK: - Private Methods
 
     private func setupUI() {
         contentView.backgroundColor = .white

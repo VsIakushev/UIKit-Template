@@ -288,7 +288,7 @@ final class PostTableViewCell: UITableViewCell {
     @objc private func bookmarkButtonTapped() {}
 }
 
-// MARK: - Extension UIScrollViewDelegate
+// MARK: - PostTableViewCell + UIScrollViewDelegate
 
 extension PostTableViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

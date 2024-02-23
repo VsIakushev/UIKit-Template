@@ -32,6 +32,7 @@
 		57C172462B88495400495720 /* ProfileHighlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */; };
 		57C172482B88496B00495720 /* ProfilePostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */; };
 		57C1724C2B88657F00495720 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1724B2B88657F00495720 /* WebViewController.swift */; };
+		57C172502B886C7800495720 /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1724F2B886C7800495720 /* PostImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHighlightsTableViewCell.swift; sourceTree = "<group>"; };
 		57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostsTableViewCell.swift; sourceTree = "<group>"; };
 		57C1724B2B88657F00495720 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		57C1724F2B886C7800495720 /* PostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				57C172432B88493300495720 /* ProfileTableViewCell.swift */,
 				57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */,
 				57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */,
+				57C1724F2B886C7800495720 /* PostImageCell.swift */,
 				57C1724B2B88657F00495720 /* WebViewController.swift */,
 			);
 			path = Profile;
@@ -308,6 +311,7 @@
 				57C172482B88496B00495720 /* ProfilePostsTableViewCell.swift in Sources */,
 				57C171C32B86E6A100495720 /* Extension+String.swift in Sources */,
 				5733135C2B73215B00092647 /* AppDelegate.swift in Sources */,
+				57C172502B886C7800495720 /* PostImageCell.swift in Sources */,
 				5733135E2B73215B00092647 /* SceneDelegate.swift in Sources */,
 				57C1716D2B84394700495720 /* PostTableViewCell.swift in Sources */,
 			);
