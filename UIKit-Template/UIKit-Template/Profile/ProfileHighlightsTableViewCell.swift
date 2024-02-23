@@ -108,7 +108,8 @@ final class ProfileHighlightsTableViewCell: UITableViewCell {
             scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            scrollView.heightAnchor.constraint(equalToConstant: 91)
+            scrollView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 91)
 
         ])
     }

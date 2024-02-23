@@ -21,7 +21,7 @@ final class ProfilePostsTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    private var posts = Profile.createPosts(with: 15)
+    private var posts = Profile.createPosts(with: 17)
 
     // MARK: - Initializers
 
@@ -39,26 +39,37 @@ final class ProfilePostsTableViewCell: UITableViewCell {
 
     private func setupUI() {
         contentView.backgroundColor = .white
-        setupCollectionView()
+        setupCollectionView(with: posts)
     }
 
-    private func setupCollectionView() {
+    private func setupCollectionView(with imageNames: [String]) {
         layout = setupFlowLayout()
 
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         contentView.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.isScrollEnabled = false
 
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+
+            contentView.heightAnchor.constraint(equalToConstant: calculateContetnViewHeight())
         ])
 
         collectionView.dataSource = self
         collectionView.register(PostImageCell.self, forCellWithReuseIdentifier: "\(PostImageCell.self)")
+    }
+
+    private func calculateContetnViewHeight() -> CGFloat {
+        var height: CGFloat = 0
+        var numberOfRows = 0
+        (posts.count % 3 == 0) ? (numberOfRows = posts.count / 3) : (numberOfRows = Int(posts.count / 3) + 1)
+        height = (CGFloat(numberOfRows) * Constants.itemWidth) + (CGFloat(numberOfRows - 1) * Constants.spacing)
+        return height
     }
 
     private func setupFlowLayout() -> UICollectionViewFlowLayout {

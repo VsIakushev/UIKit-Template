@@ -107,16 +107,6 @@ final class ProfileViewController: UIViewController {
 // MARK: - ProfileViewController + UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 220
-        } else if indexPath.row == 1 {
-            return 100
-        } else {
-            return 450
-        }
-    }
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let topOffset = -tableView.safeAreaInsets.top
         if scrollView.contentOffset.y < topOffset {
