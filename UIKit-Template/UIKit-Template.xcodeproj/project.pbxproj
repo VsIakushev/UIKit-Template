@@ -31,6 +31,7 @@
 		57C172442B88493300495720 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172432B88493300495720 /* ProfileTableViewCell.swift */; };
 		57C172462B88495400495720 /* ProfileHighlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */; };
 		57C172482B88496B00495720 /* ProfilePostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */; };
+		57C1724C2B88657F00495720 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1724B2B88657F00495720 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		57C172432B88493300495720 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHighlightsTableViewCell.swift; sourceTree = "<group>"; };
 		57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostsTableViewCell.swift; sourceTree = "<group>"; };
+		57C1724B2B88657F00495720 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				57C172432B88493300495720 /* ProfileTableViewCell.swift */,
 				57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */,
 				57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */,
+				57C1724B2B88657F00495720 /* WebViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57C172402B88490200495720 /* Profile.swift in Sources */,
+				57C1724C2B88657F00495720 /* WebViewController.swift in Sources */,
 				57C171BF2B86E66400495720 /* NotificationPostViewCell.swift in Sources */,
 				57C1716F2B84396100495720 /* RecommendationTableViewCell.swift in Sources */,
 				57C171BB2B86E62100495720 /* NotificationSubscription.swift in Sources */,

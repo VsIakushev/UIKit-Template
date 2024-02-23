@@ -228,12 +228,15 @@ class ProfileTableViewCell: UITableViewCell {
             addFriendButton.widthAnchor.constraint(equalToConstant: 25),
             addFriendButton.heightAnchor.constraint(equalToConstant: 28),
             addFriendButton.leadingAnchor.constraint(equalTo: shareProfileButton.trailingAnchor, constant: 5),
-            addFriendButton.centerYAnchor.constraint(equalTo: changeButton.centerYAnchor)
+            addFriendButton.centerYAnchor.constraint(equalTo: changeButton.centerYAnchor),
 
         ])
     }
 
     @objc private func linkButtonTapped() {
-        print("Link tapped")
+        let fullScreenVC = WebViewController()
+        if let navController = UIApplication.shared.windows.first?.rootViewController as? UINavigationController {
+            navController.pushViewController(fullScreenVC, animated: true)
+        }
     }
 }
