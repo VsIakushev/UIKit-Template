@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ellipsisIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

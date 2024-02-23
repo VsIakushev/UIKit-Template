@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "messagesIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
