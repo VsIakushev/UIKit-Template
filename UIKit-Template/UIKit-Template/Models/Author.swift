@@ -11,7 +11,7 @@ struct Author {
     /// Создание примеров Сторис, имитация работы бэка
     static func createStories() -> [Author] {
         [
-            .init(name: "Ваша история", avatar: "myAvatar"),
+            .init(name: "Ваша история", avatar: "profilePhoto"),
             .init(name: "Lavanda 123", avatar: "lavanda"),
             .init(name: "Lavanda 123", avatar: "lavanda"),
             .init(name: "Lavanda 123", avatar: "lavanda"),
