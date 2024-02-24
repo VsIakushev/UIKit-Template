@@ -97,7 +97,7 @@ extension ProfilePostsTableViewCell: UICollectionViewDataSource {
             withReuseIdentifier: "\(PostImageCell.self)",
             for: indexPath
         ) as? PostImageCell else { return UICollectionViewCell() }
-        cell.imageView.image = UIImage(named: posts[indexPath.item])
+        cell.setImage(image: UIImage(named: posts[indexPath.item]) ?? UIImage())
         return cell
     }
 }

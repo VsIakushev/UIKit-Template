@@ -7,7 +7,7 @@ import UIKit
 final class PostImageCell: UICollectionViewCell {
     // MARK: - Public Properties
 
-    let imageView = UIImageView()
+    private let imageView = UIImageView()
 
     // MARK: - Initializers
 
@@ -19,6 +19,12 @@ final class PostImageCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+
+    // MARK: - Public Methods
+
+    func setImage(image: UIImage) {
+        imageView.image = image
     }
 
     // MARK: - Private Methods
