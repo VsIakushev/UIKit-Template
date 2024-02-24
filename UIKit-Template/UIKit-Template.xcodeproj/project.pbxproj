@@ -26,6 +26,13 @@
 		57C171BF2B86E66400495720 /* NotificationPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */; };
 		57C171C12B86E67A00495720 /* NotificationSubscriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */; };
 		57C171C32B86E6A100495720 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C171C22B86E6A100495720 /* Extension+String.swift */; };
+		57C172402B88490200495720 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1723F2B88490200495720 /* Profile.swift */; };
+		57C172422B88491400495720 /* Highlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172412B88491400495720 /* Highlights.swift */; };
+		57C172442B88493300495720 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172432B88493300495720 /* ProfileTableViewCell.swift */; };
+		57C172462B88495400495720 /* ProfileHighlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */; };
+		57C172482B88496B00495720 /* ProfilePostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */; };
+		57C1724C2B88657F00495720 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1724B2B88657F00495720 /* WebViewController.swift */; };
+		57C172502B886C7800495720 /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1724F2B886C7800495720 /* PostImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,13 @@
 		57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPostViewCell.swift; sourceTree = "<group>"; };
 		57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSubscriptionViewCell.swift; sourceTree = "<group>"; };
 		57C171C22B86E6A100495720 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		57C1723F2B88490200495720 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		57C172412B88491400495720 /* Highlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlights.swift; sourceTree = "<group>"; };
+		57C172432B88493300495720 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHighlightsTableViewCell.swift; sourceTree = "<group>"; };
+		57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostsTableViewCell.swift; sourceTree = "<group>"; };
+		57C1724B2B88657F00495720 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		57C1724F2B886C7800495720 /* PostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +98,9 @@
 			children = (
 				5733135B2B73215B00092647 /* AppDelegate.swift */,
 				5733135D2B73215B00092647 /* SceneDelegate.swift */,
+				57C1723E2B88487100495720 /* Feed */,
+				57C1723D2B88486200495720 /* Notifications */,
+				57C1723C2B88485500495720 /* Profile */,
 				57C171632B8437CE00495720 /* Models */,
 				57C1722E2B8807B200495720 /* Views */,
 				573313612B73215B00092647 /* Main.storyboard */,
@@ -97,15 +114,10 @@
 		57C171632B8437CE00495720 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				57C1716A2B84392F00495720 /* StoryTableViewCell.swift */,
-				57C1716C2B84394700495720 /* PostTableViewCell.swift */,
-				57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */,
 				57C171682B84385300495720 /* Author.swift */,
 				57C171642B8437DB00495720 /* Post.swift */,
 				57C171BC2B86E64600495720 /* NotificationPost.swift */,
 				57C171BA2B86E62100495720 /* NotificationSubscription.swift */,
-				57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */,
-				57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,12 +134,45 @@
 			isa = PBXGroup;
 			children = (
 				57C1715B2B841EC300495720 /* TabBarController.swift */,
-				5733135F2B73215B00092647 /* FeedViewController.swift */,
-				57C1715D2B841EFD00495720 /* NotificationsViewController.swift */,
-				57C1715F2B841F1600495720 /* ProfileViewController.swift */,
 				57C171C42B86E6A800495720 /* Extensions */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		57C1723C2B88485500495720 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				57C1715F2B841F1600495720 /* ProfileViewController.swift */,
+				57C1723F2B88490200495720 /* Profile.swift */,
+				57C172412B88491400495720 /* Highlights.swift */,
+				57C172432B88493300495720 /* ProfileTableViewCell.swift */,
+				57C172452B88495400495720 /* ProfileHighlightsTableViewCell.swift */,
+				57C172472B88496B00495720 /* ProfilePostsTableViewCell.swift */,
+				57C1724F2B886C7800495720 /* PostImageCell.swift */,
+				57C1724B2B88657F00495720 /* WebViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		57C1723D2B88486200495720 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				57C1715D2B841EFD00495720 /* NotificationsViewController.swift */,
+				57C171BE2B86E66400495720 /* NotificationPostViewCell.swift */,
+				57C171C02B86E67A00495720 /* NotificationSubscriptionViewCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		57C1723E2B88487100495720 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				5733135F2B73215B00092647 /* FeedViewController.swift */,
+				57C1716A2B84392F00495720 /* StoryTableViewCell.swift */,
+				57C1716E2B84396100495720 /* RecommendationTableViewCell.swift */,
+				57C1716C2B84394700495720 /* PostTableViewCell.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,20 +291,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C172402B88490200495720 /* Profile.swift in Sources */,
+				57C1724C2B88657F00495720 /* WebViewController.swift in Sources */,
 				57C171BF2B86E66400495720 /* NotificationPostViewCell.swift in Sources */,
 				57C1716F2B84396100495720 /* RecommendationTableViewCell.swift in Sources */,
 				57C171BB2B86E62100495720 /* NotificationSubscription.swift in Sources */,
 				57C171602B841F1600495720 /* ProfileViewController.swift in Sources */,
 				57C171BD2B86E64600495720 /* NotificationPost.swift in Sources */,
 				57C1716B2B84392F00495720 /* StoryTableViewCell.swift in Sources */,
+				57C172442B88493300495720 /* ProfileTableViewCell.swift in Sources */,
 				57C1715E2B841EFD00495720 /* NotificationsViewController.swift in Sources */,
+				57C172422B88491400495720 /* Highlights.swift in Sources */,
 				57C171692B84385300495720 /* Author.swift in Sources */,
 				57C171652B8437DB00495720 /* Post.swift in Sources */,
 				57C171C12B86E67A00495720 /* NotificationSubscriptionViewCell.swift in Sources */,
 				573313602B73215B00092647 /* FeedViewController.swift in Sources */,
+				57C172462B88495400495720 /* ProfileHighlightsTableViewCell.swift in Sources */,
 				57C1715C2B841EC300495720 /* TabBarController.swift in Sources */,
+				57C172482B88496B00495720 /* ProfilePostsTableViewCell.swift in Sources */,
 				57C171C32B86E6A100495720 /* Extension+String.swift in Sources */,
 				5733135C2B73215B00092647 /* AppDelegate.swift in Sources */,
+				57C172502B886C7800495720 /* PostImageCell.swift in Sources */,
 				5733135E2B73215B00092647 /* SceneDelegate.swift in Sources */,
 				57C1716D2B84394700495720 /* PostTableViewCell.swift in Sources */,
 			);
