@@ -1,24 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Traffic Light Using Anchor-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TrafficLightUsingAnchor" customModule="UIKit_Template" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu1-zw-HRX">
+                                <rect key="frame" x="127" y="267.5" width="160" height="375"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qso-Jx-F8A">
+                                        <rect key="frame" x="25" y="132.5" width="110" height="110"/>
+                                        <color key="backgroundColor" red="0.96823817489999997" green="0.71069878340000003" blue="0.0032384968360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="dTh-oz-nRC"/>
+                                            <constraint firstAttribute="width" constant="110" id="f2F-gy-sSR"/>
+                                            <constraint firstAttribute="width" secondItem="Qso-Jx-F8A" secondAttribute="height" multiplier="1:1" id="wAs-sP-m5b"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="f2F-gy-sSR"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="dTh-oz-nRC"/>
+                                                <include reference="wAs-sP-m5b"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-QP-gog">
+                                        <rect key="frame" x="25" y="14.5" width="110" height="110"/>
+                                        <color key="backgroundColor" red="0.87973588709999995" green="0.12601378560000001" blue="0.1234962419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="z9g-Io-wKH"/>
+                                            <constraint firstAttribute="width" secondItem="pHP-QP-gog" secondAttribute="height" multiplier="1:1" id="zem-BY-CVQ"/>
+                                            <constraint firstAttribute="width" constant="110" id="zuQ-BE-6YI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="zuQ-BE-6YI"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="z9g-Io-wKH"/>
+                                                <include reference="zem-BY-CVQ"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p47-Zd-ITW">
+                                        <rect key="frame" x="25" y="250.5" width="110" height="110"/>
+                                        <color key="backgroundColor" red="0.4273907542" green="0.83314919470000004" blue="0.00070174975550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="9lc-ZY-PWr"/>
+                                            <constraint firstAttribute="width" secondItem="p47-Zd-ITW" secondAttribute="height" multiplier="1:1" id="QOp-r4-5mB"/>
+                                            <constraint firstAttribute="width" constant="90" id="alr-vf-ixT"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="9lc-ZY-PWr"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="alr-vf-ixT"/>
+                                                <include reference="QOp-r4-5mB"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="5VQ-Xc-9x7"/>
+                                    <constraint firstAttribute="width" secondItem="eu1-zw-HRX" secondAttribute="height" multiplier="32:75" id="BsL-bE-RQx"/>
+                                    <constraint firstItem="pHP-QP-gog" firstAttribute="width" secondItem="pHP-QP-gog" secondAttribute="height" multiplier="1:1" id="JXl-bS-6a3"/>
+                                    <constraint firstItem="Qso-Jx-F8A" firstAttribute="top" secondItem="pHP-QP-gog" secondAttribute="bottom" constant="8" id="MKn-oE-lRB"/>
+                                    <constraint firstItem="pHP-QP-gog" firstAttribute="centerX" secondItem="eu1-zw-HRX" secondAttribute="centerX" id="Nj1-Di-XuJ"/>
+                                    <constraint firstItem="p47-Zd-ITW" firstAttribute="top" secondItem="Qso-Jx-F8A" secondAttribute="bottom" constant="8" id="OVk-2f-sdX"/>
+                                    <constraint firstItem="p47-Zd-ITW" firstAttribute="width" secondItem="p47-Zd-ITW" secondAttribute="height" multiplier="1:1" id="T6G-C4-ZTN"/>
+                                    <constraint firstItem="p47-Zd-ITW" firstAttribute="centerX" secondItem="eu1-zw-HRX" secondAttribute="centerX" id="ire-cf-lq7"/>
+                                    <constraint firstItem="Qso-Jx-F8A" firstAttribute="centerY" secondItem="eu1-zw-HRX" secondAttribute="centerY" id="kWG-Kc-NDj"/>
+                                    <constraint firstItem="p47-Zd-ITW" firstAttribute="width" secondItem="p47-Zd-ITW" secondAttribute="height" multiplier="1:1" id="nCo-Fo-B8q"/>
+                                    <constraint firstAttribute="width" constant="160" id="qSD-Yq-eOg"/>
+                                    <constraint firstItem="Qso-Jx-F8A" firstAttribute="centerX" secondItem="eu1-zw-HRX" secondAttribute="centerX" id="rqO-Uq-XWI"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="qSD-Yq-eOg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="5VQ-Xc-9x7"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eu1-zw-HRX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="axt-Uz-XFj"/>
+                            <constraint firstItem="eu1-zw-HRX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ru1-WJ-bus"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="123.18840579710145" y="-55.580357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
